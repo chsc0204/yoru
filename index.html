@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>물체 탐지기</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", -apple-system, sans-serif;
+    background: #1c1e22;
+    color: #eceef0;
+    margin: 0;
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .subtitle { color: #9aa0a6; font-size: 13px; margin-bottom: 24px; }
+  .panel {
+    background: #26292e;
+    border: 1px solid #34383e;
+    border-radius: 14px;
+    padding: 20px;
+    width: 100%;
+    max-width: 640px;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  input[type="file"] {
+    color: #eceef0;
+    font-size: 13px;
+  }
+  button {
+    background: #ffb020;
+    color: #1c1e22;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  button:disabled {
+    background: #4b4f55;
+    color: #9aa0a6;
+    cursor: not-allowed;
+  }
+  #status {
+    font-size: 13px;
+    color: #ffb020;
+    min-height: 18px;
+    margin-bottom: 12px;
+  }
+  .image-wrap {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    line-height: 0;
+  }
+  #uploadedImage {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #resultText {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+  <h1>물체 탐지기</h1>
+  <div class="subtitle">사진을 올리고 물체 찾기를 누르면 박스와 확률(%)로 표시합니다.</div>
+
+  <div class="panel">
+    <div class="controls">
+      <input type="file" id="fileInput" accept="image/*">
+      <button id="detectBtn" disabled>물체 찾기</button>
+    </div>
+    <div id="status">모델을 불러오는 중입니다...</div>
+
+    <div class="image-wrap">
+      <img id="uploadedImage" alt="">
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <div id="resultText"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const detectBtn = document.getElementById('detectBtn');
+    const statusEl = document.getElementById('status');
+    const img = document.getElementById('uploadedImage');
+    const canvas = document.getElementById('overlay');
+    const ctx = canvas.getContext('2d');
+    const resultText = document.getElementById('resultText');
+
+    let model = null;
+
+    async function loadModel() {
+      try {
+        model = await cocoSsd.load();
+        statusEl.textContent = '모델 준비 완료. 사진을 올려주세요.';
+        if (img.src) detectBtn.disabled = false;
+      } catch (err) {
+        statusEl.textContent = '모델을 불러오지 못했습니다. 인터넷 연결을 확인해주세요.';
+        console.error(err);
+      }
+    }
+    loadModel();
+
+    function clearOverlay() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      resultText.textContent = '';
+    }
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        img.onload = () => {
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          clearOverlay();
+          if (model) detectBtn.disabled = false;
+          statusEl.textContent = '사진이 준비됐습니다. 물체 찾기를 눌러주세요.';
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    detectBtn.addEventListener('click', async () => {
+      if (!model || !img.src) return;
+
+      detectBtn.disabled = true;
+      statusEl.textContent = '탐지 중입니다...';
+      clearOverlay();
+
+      try {
+        const predictions = await model.detect(img);
+        drawPredictions(predictions);
+        showResultText(predictions);
+        statusEl.textContent = '탐지 완료.';
+      } catch (err) {
+        statusEl.textContent = '탐지 중 오류가 발생했습니다.';
+        console.error(err);
+      } finally {
+        detectBtn.disabled = false;
+      }
+    });
+
+    function drawPredictions(predictions) {
+      const lineWidth = Math.max(2, canvas.width / 300);
+      const fontSize = Math.max(14, canvas.width / 50);
+      ctx.lineWidth = lineWidth;
+      ctx.strokeStyle = '#ffe600';
+      ctx.font = `bold ${fontSize}px "Malgun Gothic", sans-serif`;
+      ctx.textBaseline = 'bottom';
+
+      predictions.forEach((p) => {
+        const [x, y, width, height] = p.bbox;
+        const label = `${p.class} ${(p.score * 100).toFixed(1)}%`;
+
+        ctx.strokeRect(x, y, width, height);
+
+        const textWidth = ctx.measureText(label).width;
+        const labelHeight = fontSize + 6;
+        const labelY = y > labelHeight ? y : y + height + labelHeight;
+
+        ctx.fillStyle = '#ffe600';
+        ctx.fillRect(x, labelY - labelHeight, textWidth + 10, labelHeight);
+
+        ctx.fillStyle = '#1c1e22';
+        ctx.fillText(label, x + 5, labelY - 4);
+      });
+    }
+
+    function showResultText(predictions) {
+      if (predictions.length === 0) {
+        resultText.textContent = '물체를 찾지 못했어요.';
+        return;
+      }
+      const names = predictions.map((p) => p.class);
+      resultText.textContent = `물체 ${predictions.length}개를 찾았어요: ${names.join(', ')}`;
+    }
+  </script>
+</body>
+</html>
