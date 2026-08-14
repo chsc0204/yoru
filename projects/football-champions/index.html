@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Football Champions Archive — 축구 챔피언스 아카이브</title>
+<meta name="description" content="2000년 이후 주요 축구대회 챔피언 통합 아카이브 및 데이터 시각화 플랫폼" />
+<meta name="theme-color" content="#0a0e14" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+<a class="skip-link" href="#main-content">본문으로 바로가기</a>
+
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="#/dashboard" aria-label="Football Champions Archive 홈으로 이동">
+      <span class="brand__icon" aria-hidden="true">⚽</span>
+      <span class="brand__text">
+        <span class="brand__title">FOOTBALL CHAMPIONS ARCHIVE</span>
+        <span class="brand__subtitle">축구 챔피언스 아카이브</span>
+      </span>
+    </a>
+
+    <form class="global-search" role="search" id="global-search-form">
+      <label class="sr-only" for="global-search-input">팀, 대회, 연도로 검색</label>
+      <span class="global-search__icon" aria-hidden="true">🔍</span>
+      <input
+        type="search"
+        id="global-search-input"
+        class="global-search__input"
+        placeholder="팀, 대회, 연도로 검색 (예: madrid, UCL, 2014)"
+        autocomplete="off"
+      />
+    </form>
+
+    <nav class="main-nav" id="main-nav" aria-label="주요 메뉴">
+      <a class="main-nav__link" href="#/dashboard" data-route="dashboard">대시보드</a>
+      <a class="main-nav__link" href="#/database" data-route="database">데이터베이스</a>
+      <a class="main-nav__link" href="#/search" data-route="search">검색</a>
+      <a class="main-nav__link" href="#/statistics" data-route="statistics">통계</a>
+      <a class="main-nav__link" href="#/worldmap" data-route="worldmap">월드컵 지도</a>
+      <a class="main-nav__link" href="#/ballondor" data-route="ballondor">발롱도르</a>
+      <a class="main-nav__link" href="#/favorites" data-route="favorites">
+        <span aria-hidden="true">☆</span> 즐겨찾기
+      </a>
+    </nav>
+
+    <button
+      class="hamburger-btn"
+      id="hamburger-btn"
+      type="button"
+      aria-label="메뉴 열기"
+      aria-expanded="false"
+      aria-controls="mobile-nav-drawer"
+    >
+      <span class="hamburger-btn__bar"></span>
+      <span class="hamburger-btn__bar"></span>
+      <span class="hamburger-btn__bar"></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+  <nav aria-label="모바일 메뉴">
+    <a href="#/dashboard" data-route="dashboard">🏠 대시보드</a>
+    <a href="#/database" data-route="database">📚 데이터베이스</a>
+    <a href="#/search" data-route="search">🔍 검색</a>
+    <a href="#/statistics" data-route="statistics">📊 통계</a>
+    <a href="#/worldmap" data-route="worldmap">🌍 월드컵 지도</a>
+    <a href="#/ballondor" data-route="ballondor">🏆 발롱도르</a>
+    <a href="#/favorites" data-route="favorites">☆ 즐겨찾기</a>
+  </nav>
+</div>
+<div class="mobile-nav-backdrop" id="mobile-nav-backdrop" hidden></div>
+
+<main id="main-content" class="app-main">
+  <div id="route-announcer" class="sr-only" role="status" aria-live="polite"></div>
+  <div id="app" class="app-root"
+    <div class="loading-screen" role="status">
+      <div class="loading-screen__spinner" aria-hidden="true"></div>
+      <p>데이터를 불러오는 중입니다…</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>Football Champions Archive — 2000년 이후 주요 축구대회 챔피언 통합 아카이브</p>
+  <p class="site-footer__meta">데이터는 교육 및 포트폴리오 목적의 참고용 정적 데이터셋입니다.</p>
+</footer>
+
+<button
+  type="button"
+  id="scroll-top-btn"
+  class="scroll-top-btn"
+  aria-label="페이지 맨 위로 이동"
+  hidden
+>
+  ↑
+</button>
+
+<div id="toast-region" class="toast-region" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+[
+  { "recordId": "uel-2009-10", "competitionId": "uel", "season": "2009-10", "year": 2010, "championTeamId": "atletico-madrid", "runnerUpTeamId": "fulham", "score": "2-1 (연장전)", "venue": "폭스보로 스타디움, 함부르크", "hostNation": null },
+  { "recordId": "uel-2013-14", "competitionId": "uel", "season": "2013-14", "year": 2014, "championTeamId": "sevilla", "runnerUpTeamId": "benfica", "score": "0-0 (승부차기 4-2)", "venue": "주벤투스 스타디움, 토리노", "hostNation": null },
+  { "recordId": "uel-2016-17", "competitionId": "uel", "season": "2016-17", "year": 2017, "championTeamId": "manchester-united", "runnerUpTeamId": "ajax", "score": "2-0", "venue": "프리드리히 루드비히 얀 슈타디온, 스톡홀름", "hostNation": null },
+  { "recordId": "uel-2017-18", "competitionId": "uel", "season": "2017-18", "year": 2018, "championTeamId": "atletico-madrid", "runnerUpTeamId": "marseille", "score": "3-0", "venue": "파르켄 스타디움, 코펜하겐", "hostNation": null },
+  { "recordId": "uel-2018-19", "competitionId": "uel", "season": "2018-19", "year": 2019, "championTeamId": "chelsea", "runnerUpTeamId": "arsenal", "score": "4-1", "venue": "바쿠 올림픽 스타디움, 바쿠", "hostNation": null },
+  { "recordId": "uel-2020-21", "competitionId": "uel", "season": "2020-21", "year": 2021, "championTeamId": "villarreal", "runnerUpTeamId": "manchester-united", "score": "1-1 (승부차기 11-10)", "venue": "GSP 스타디움, 니코시아", "hostNation": null },
+  { "recordId": "uel-2023-24", "competitionId": "uel", "season": "2023-24", "year": 2024, "championTeamId": "atalanta", "runnerUpTeamId": "bayer-leverkusen", "score": "3-0", "venue": "아비바 스타디움, 더블린", "hostNation": null },
+  { "recordId": "uel-2024-25", "competitionId": "uel", "season": "2024-25", "year": 2025, "championTeamId": "tottenham", "runnerUpTeamId": "manchester-united", "score": "1-0", "venue": "산 마메스, 빌바오", "hostNation": null }
+]

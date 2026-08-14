@@ -1,0 +1,7 @@
+[
+  { "playerId": "messi", "name": "리오넬 메시", "countryId": "arg", "wins": 8, "years": [2009, 2010, 2011, 2012, 2015, 2019, 2021, 2023] },
+  { "playerId": "ronaldo", "name": "크리스티아누 호날두", "countryId": "por", "wins": 5, "years": [2008, 2013, 2014, 2016, 2017] },
+  { "playerId": "cruyff", "name": "요한 크루이프", "countryId": "ned", "wins": 3, "years": [1971, 1973, 1974] },
+  { "playerId": "platini", "name": "미셸 플라티니", "countryId": "fra", "wins": 3, "years": [1983, 1984, 1985] },
+  { "playerId": "van-basten", "name": "마르코 반 바스텐", "countryId": "ned", "wins": 3, "years": [1988, 1989, 1992] }
+]

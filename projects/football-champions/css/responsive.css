@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Football Champions Archive — Responsive Rules
+   Breakpoints:
+     Mobile  : 320px – 479px  (base styles below, mobile-first)
+     Tablet  : 480px – 1023px
+     Desktop : 1024px and up
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------- */
+/* Base (Mobile: 320–479px) — mobile-first defaults                        */
+/* ---------------------------------------------------------------------- */
+
+.main-nav {
+  display: none;
+}
+.hamburger-btn {
+  display: flex;
+}
+.global-search {
+  flex: 1 1 auto;
+  max-width: none;
+}
+.brand__subtitle {
+  display: none;
+}
+
+.grid--stats-3,
+.grid--2col {
+  grid-template-columns: 1fr;
+}
+
+.layout-with-sidebar {
+  grid-template-columns: 1fr;
+}
+.sidebar-sticky {
+  position: static;
+}
+
+/* Table -> card swap on mobile */
+.record-table {
+  display: none;
+}
+.record-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+.record-card__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+}
+.record-card__row dt {
+  color: var(--color-text-muted);
+}
+.record-card__row dd {
+  font-weight: 600;
+  text-align: right;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.world-map-viewport {
+  aspect-ratio: 12 / 7;
+}
+
+.team-profile {
+  flex-direction: column;
+  text-align: center;
+}
+
+.site-header__inner {
+  gap: var(--space-3);
+  padding: 0 var(--space-4);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Tablet: 480px – 1023px                                                   */
+/* ---------------------------------------------------------------------- */
+@media (min-width: 480px) {
+  .grid--stats-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .record-table {
+    display: table;
+  }
+  .record-card {
+    display: none;
+  }
+  .team-profile {
+    flex-direction: row;
+    text-align: left;
+  }
+  .world-map-viewport {
+    aspect-ratio: 12 / 7;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Desktop: 1024px and up                                                   */
+/* ---------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .main-nav {
+    display: flex;
+  }
+  .hamburger-btn {
+    display: none;
+  }
+  .brand__subtitle {
+    display: block;
+  }
+  .global-search {
+    flex: 1 1 320px;
+    max-width: 420px;
+  }
+
+  .grid--stats-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .layout-with-sidebar {
+    grid-template-columns: 280px 1fr;
+  }
+  .sidebar-sticky {
+    position: sticky;
+  }
+
+  .chart-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .chart-grid--full > .chart-card {
+    grid-column: 1 / -1;
+  }
+
+  .world-map-viewport {
+    aspect-ratio: 12 / 7;
+  }
+}
+
+/* Small-mobile safety net (< 360px): tighten paddings further */
+@media (max-width: 359px) {
+  .app-root {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+  .card {
+    padding: var(--space-4);
+  }
+}

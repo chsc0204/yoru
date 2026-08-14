@@ -1,0 +1,11 @@
+[
+  { "recordId": "laliga-1999-2000", "competitionId": "laliga", "season": "1999-2000", "year": 2000, "championTeamId": "deportivo", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2004-05", "competitionId": "laliga", "season": "2004-05", "year": 2005, "championTeamId": "barcelona", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2011-12", "competitionId": "laliga", "season": "2011-12", "year": 2012, "championTeamId": "real-madrid", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2013-14", "competitionId": "laliga", "season": "2013-14", "year": 2014, "championTeamId": "atletico-madrid", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2017-18", "competitionId": "laliga", "season": "2017-18", "year": 2018, "championTeamId": "barcelona", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2019-20", "competitionId": "laliga", "season": "2019-20", "year": 2020, "championTeamId": "real-madrid", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2022-23", "competitionId": "laliga", "season": "2022-23", "year": 2023, "championTeamId": "barcelona", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2023-24", "competitionId": "laliga", "season": "2023-24", "year": 2024, "championTeamId": "real-madrid", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "laliga-2024-25", "competitionId": "laliga", "season": "2024-25", "year": 2025, "championTeamId": "barcelona", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null }
+]

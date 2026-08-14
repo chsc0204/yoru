@@ -1,0 +1,21 @@
+[
+  { "countryId": "esp", "name": "스페인", "flag": "🇪🇸", "confederation": "UEFA" },
+  { "countryId": "eng", "name": "잉글랜드", "flag": "🏴", "confederation": "UEFA" },
+  { "countryId": "ger", "name": "독일", "flag": "🇩🇪", "confederation": "UEFA" },
+  { "countryId": "fra", "name": "프랑스", "flag": "🇫🇷", "confederation": "UEFA" },
+  { "countryId": "ita", "name": "이탈리아", "flag": "🇮🇹", "confederation": "UEFA" },
+  { "countryId": "ned", "name": "네덜란드", "flag": "🇳🇱", "confederation": "UEFA" },
+  { "countryId": "por", "name": "포르투갈", "flag": "🇵🇹", "confederation": "UEFA" },
+  { "countryId": "gre", "name": "그리스", "flag": "🇬🇷", "confederation": "UEFA" },
+  { "countryId": "hrv", "name": "크로아티아", "flag": "🇭🇷", "confederation": "UEFA" },
+  { "countryId": "sco", "name": "스코틀랜드", "flag": "🏴", "confederation": "UEFA" },
+  { "countryId": "ukr", "name": "우크라이나", "flag": "🇺🇦", "confederation": "UEFA" },
+  { "countryId": "bra", "name": "브라질", "flag": "🇧🇷", "confederation": "CONMEBOL" },
+  { "countryId": "arg", "name": "아르헨티나", "flag": "🇦🇷", "confederation": "CONMEBOL" },
+  { "countryId": "ury", "name": "우루과이", "flag": "🇺🇾", "confederation": "CONMEBOL" },
+  { "countryId": "col", "name": "콜롬비아", "flag": "🇨🇴", "confederation": "CONMEBOL" },
+  { "countryId": "pry", "name": "파라과이", "flag": "🇵🇾", "confederation": "CONMEBOL" },
+  { "countryId": "chl", "name": "칠레", "flag": "🇨🇱", "confederation": "CONMEBOL" },
+  { "countryId": "per", "name": "페루", "flag": "🇵🇪", "confederation": "CONMEBOL" },
+  { "countryId": "mex", "name": "멕시코", "flag": "🇲🇽", "confederation": "CONCACAF" }
+]

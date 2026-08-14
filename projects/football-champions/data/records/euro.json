@@ -1,0 +1,9 @@
+[
+  { "recordId": "euro-2000", "competitionId": "euro", "season": "2000", "year": 2000, "championTeamId": "france", "runnerUpTeamId": "italy", "score": "2-1 (연장전 골든골)", "venue": "데 카위프, 로테르담", "hostNation": "벨기에 / 네덜란드" },
+  { "recordId": "euro-2004", "competitionId": "euro", "season": "2004", "year": 2004, "championTeamId": "greece", "runnerUpTeamId": "portugal", "score": "1-0", "venue": "이스타디우 다 루스, 리스본", "hostNation": "포르투갈" },
+  { "recordId": "euro-2008", "competitionId": "euro", "season": "2008", "year": 2008, "championTeamId": "spain", "runnerUpTeamId": "germany", "score": "1-0", "venue": "에른스트 하펠 슈타디온, 빈", "hostNation": "오스트리아 / 스위스" },
+  { "recordId": "euro-2012", "competitionId": "euro", "season": "2012", "year": 2012, "championTeamId": "spain", "runnerUpTeamId": "italy", "score": "4-0", "venue": "올림피이스키 국립경기장, 키이우", "hostNation": "폴란드 / 우크라이나" },
+  { "recordId": "euro-2016", "competitionId": "euro", "season": "2016", "year": 2016, "championTeamId": "portugal", "runnerUpTeamId": "france", "score": "1-0 (연장전)", "venue": "스타드 드 프랑스, 파리", "hostNation": "프랑스" },
+  { "recordId": "euro-2020", "competitionId": "euro", "season": "2020", "year": 2021, "championTeamId": "italy", "runnerUpTeamId": "england", "score": "1-1 (승부차기 3-2)", "venue": "웸블리 스타디움, 런던", "hostNation": "유럽 11개국 공동 개최" },
+  { "recordId": "euro-2024", "competitionId": "euro", "season": "2024", "year": 2024, "championTeamId": "spain", "runnerUpTeamId": "england", "score": "2-1", "venue": "올림피아슈타디온, 베를린", "hostNation": "독일" }
+]

@@ -1,0 +1,8 @@
+[
+  { "recordId": "worldcup-2002", "competitionId": "worldcup", "season": "2002", "year": 2002, "championTeamId": "brazil", "runnerUpTeamId": "germany", "score": "2-0", "venue": "국제경기장, 요코하마", "hostNation": "한국 / 일본" },
+  { "recordId": "worldcup-2006", "competitionId": "worldcup", "season": "2006", "year": 2006, "championTeamId": "italy", "runnerUpTeamId": "france", "score": "1-1 (승부차기 5-3)", "venue": "올림피아슈타디온, 베를린", "hostNation": "독일" },
+  { "recordId": "worldcup-2010", "competitionId": "worldcup", "season": "2010", "year": 2010, "championTeamId": "spain", "runnerUpTeamId": "netherlands", "score": "1-0 (연장전)", "venue": "사커시티, 요하네스버그", "hostNation": "남아프리카공화국" },
+  { "recordId": "worldcup-2014", "competitionId": "worldcup", "season": "2014", "year": 2014, "championTeamId": "germany", "runnerUpTeamId": "argentina", "score": "1-0 (연장전)", "venue": "마라카낭, 리우데자네이루", "hostNation": "브라질" },
+  { "recordId": "worldcup-2018", "competitionId": "worldcup", "season": "2018", "year": 2018, "championTeamId": "france", "runnerUpTeamId": "croatia", "score": "4-2", "venue": "루즈니키 스타디움, 모스크바", "hostNation": "러시아" },
+  { "recordId": "worldcup-2022", "competitionId": "worldcup", "season": "2022", "year": 2022, "championTeamId": "argentina", "runnerUpTeamId": "france", "score": "3-3 (승부차기 4-2)", "venue": "루사일 스타디움, 루사일", "hostNation": "카타르" }
+]

@@ -1,0 +1,11 @@
+[
+  { "recordId": "seriea-1999-2000", "competitionId": "seriea", "season": "1999-2000", "year": 2000, "championTeamId": "lazio", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2003-04", "competitionId": "seriea", "season": "2003-04", "year": 2004, "championTeamId": "ac-milan", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2005-06", "competitionId": "seriea", "season": "2005-06", "year": 2006, "championTeamId": "inter-milan", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2011-12", "competitionId": "seriea", "season": "2011-12", "year": 2012, "championTeamId": "juventus", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2018-19", "competitionId": "seriea", "season": "2018-19", "year": 2019, "championTeamId": "juventus", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2020-21", "competitionId": "seriea", "season": "2020-21", "year": 2021, "championTeamId": "inter-milan", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2022-23", "competitionId": "seriea", "season": "2022-23", "year": 2023, "championTeamId": "napoli", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2023-24", "competitionId": "seriea", "season": "2023-24", "year": 2024, "championTeamId": "inter-milan", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "seriea-2024-25", "competitionId": "seriea", "season": "2024-25", "year": 2025, "championTeamId": "napoli", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null }
+]

@@ -1,0 +1,11 @@
+[
+  { "recordId": "epl-1999-2000", "competitionId": "epl", "season": "1999-2000", "year": 2000, "championTeamId": "manchester-united", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2003-04", "competitionId": "epl", "season": "2003-04", "year": 2004, "championTeamId": "arsenal", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2007-08", "competitionId": "epl", "season": "2007-08", "year": 2008, "championTeamId": "manchester-united", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2011-12", "competitionId": "epl", "season": "2011-12", "year": 2012, "championTeamId": "manchester-city", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2015-16", "competitionId": "epl", "season": "2015-16", "year": 2016, "championTeamId": "leicester-city", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2018-19", "competitionId": "epl", "season": "2018-19", "year": 2019, "championTeamId": "manchester-city", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2019-20", "competitionId": "epl", "season": "2019-20", "year": 2020, "championTeamId": "liverpool", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2023-24", "competitionId": "epl", "season": "2023-24", "year": 2024, "championTeamId": "manchester-city", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "epl-2024-25", "competitionId": "epl", "season": "2024-25", "year": 2025, "championTeamId": "liverpool", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null }
+]

@@ -1,0 +1,13 @@
+[
+  { "recordId": "ucl-1999-2000", "competitionId": "ucl", "season": "1999-2000", "year": 2000, "championTeamId": "real-madrid", "runnerUpTeamId": "valencia", "score": "3-0", "venue": "스타드 드 프랑스, 파리", "hostNation": null },
+  { "recordId": "ucl-2001-02", "competitionId": "ucl", "season": "2001-02", "year": 2002, "championTeamId": "real-madrid", "runnerUpTeamId": "bayer-leverkusen", "score": "2-1", "venue": "햄던 파크, 글래스고", "hostNation": null },
+  { "recordId": "ucl-2005-06", "competitionId": "ucl", "season": "2005-06", "year": 2006, "championTeamId": "barcelona", "runnerUpTeamId": "arsenal", "score": "2-1", "venue": "스타드 드 프랑스, 파리", "hostNation": null },
+  { "recordId": "ucl-2008-09", "competitionId": "ucl", "season": "2008-09", "year": 2009, "championTeamId": "barcelona", "runnerUpTeamId": "manchester-united", "score": "2-0", "venue": "스타디오 올림피코, 로마", "hostNation": null },
+  { "recordId": "ucl-2011-12", "competitionId": "ucl", "season": "2011-12", "year": 2012, "championTeamId": "chelsea", "runnerUpTeamId": "bayern-munich", "score": "1-1 (승부차기 4-3)", "venue": "알리안츠 아레나, 뮌헨", "hostNation": null },
+  { "recordId": "ucl-2013-14", "competitionId": "ucl", "season": "2013-14", "year": 2014, "championTeamId": "real-madrid", "runnerUpTeamId": "atletico-madrid", "score": "4-1 (연장전)", "venue": "이스타디우 다 루스, 리스본", "hostNation": null },
+  { "recordId": "ucl-2015-16", "competitionId": "ucl", "season": "2015-16", "year": 2016, "championTeamId": "real-madrid", "runnerUpTeamId": "atletico-madrid", "score": "1-1 (승부차기 5-3)", "venue": "산 시로, 밀라노", "hostNation": null },
+  { "recordId": "ucl-2018-19", "competitionId": "ucl", "season": "2018-19", "year": 2019, "championTeamId": "liverpool", "runnerUpTeamId": "tottenham", "score": "2-0", "venue": "완다 메트로폴리타노, 마드리드", "hostNation": null },
+  { "recordId": "ucl-2019-20", "competitionId": "ucl", "season": "2019-20", "year": 2020, "championTeamId": "bayern-munich", "runnerUpTeamId": "psg", "score": "1-0", "venue": "이스타디우 다 루스, 리스본", "hostNation": null },
+  { "recordId": "ucl-2023-24", "competitionId": "ucl", "season": "2023-24", "year": 2024, "championTeamId": "real-madrid", "runnerUpTeamId": "borussia-dortmund", "score": "2-0", "venue": "웸블리 스타디움, 런던", "hostNation": null },
+  { "recordId": "ucl-2024-25", "competitionId": "ucl", "season": "2024-25", "year": 2025, "championTeamId": "psg", "runnerUpTeamId": "inter-milan", "score": "5-0", "venue": "알리안츠 아레나, 뮌헨", "hostNation": null }
+]

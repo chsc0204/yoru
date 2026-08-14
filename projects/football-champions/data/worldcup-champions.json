@@ -1,0 +1,10 @@
+[
+  { "countryId": "bra", "teamId": "brazil", "name": "브라질", "flag": "🇧🇷", "titles": 5, "years": [1958, 1962, 1970, 1994, 2002], "x": 275.0, "y": 569.3 },
+  { "countryId": "ger", "teamId": "germany", "name": "독일", "flag": "🇩🇪", "titles": 4, "years": [1954, 1974, 1990, 2014], "x": 438, "y": 385 },
+  { "countryId": "ita", "teamId": "italy", "name": "이탈리아", "flag": "🇮🇹", "titles": 4, "years": [1934, 1938, 1982, 2006], "x": 445, "y": 422 },
+  { "countryId": "arg", "teamId": "argentina", "name": "아르헨티나", "flag": "🇦🇷", "titles": 3, "years": [1978, 1986, 2022], "x": 255, "y": 645 },
+  { "countryId": "fra", "teamId": "france", "name": "프랑스", "flag": "🇫🇷", "titles": 2, "years": [1998, 2018], "x": 410.8, "y": 406.0 },
+  { "countryId": "ury", "teamId": "uruguay", "name": "우루과이", "flag": "🇺🇾", "titles": 2, "years": [1930, 1950], "x": 286, "y": 614 },
+  { "countryId": "esp", "teamId": "spain", "name": "스페인", "flag": "🇪🇸", "titles": 1, "years": [2010], "x": 392, "y": 432 },
+  { "countryId": "eng", "teamId": "england", "name": "잉글랜드", "flag": "🏴", "titles": 1, "years": [1966], "x": 395, "y": 375 }
+]

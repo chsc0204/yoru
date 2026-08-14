@@ -1,0 +1,10 @@
+[
+  { "recordId": "copaamerica-2001", "competitionId": "copaamerica", "season": "2001", "year": 2001, "championTeamId": "colombia", "runnerUpTeamId": "mexico", "score": "1-0", "venue": "에스타디오 카마페, 바랑키야", "hostNation": "콜롬비아" },
+  { "recordId": "copaamerica-2004", "competitionId": "copaamerica", "season": "2004", "year": 2004, "championTeamId": "brazil", "runnerUpTeamId": "argentina", "score": "2-2 (승부차기 4-2)", "venue": "에스타디오 폴리데포르티보, 리마", "hostNation": "페루" },
+  { "recordId": "copaamerica-2007", "competitionId": "copaamerica", "season": "2007", "year": 2007, "championTeamId": "brazil", "runnerUpTeamId": "argentina", "score": "3-0", "venue": "에스타디오 폴리데포르티보 데 라 우니베르시다드, 마라카이보", "hostNation": "베네수엘라" },
+  { "recordId": "copaamerica-2011", "competitionId": "copaamerica", "season": "2011", "year": 2011, "championTeamId": "uruguay", "runnerUpTeamId": "paraguay", "score": "3-0", "venue": "에스타디오 모누멘탈, 부에노스아이레스", "hostNation": "아르헨티나" },
+  { "recordId": "copaamerica-2015", "competitionId": "copaamerica", "season": "2015", "year": 2015, "championTeamId": "chile", "runnerUpTeamId": "argentina", "score": "0-0 (승부차기 4-1)", "venue": "에스타디오 나시오날, 산티아고", "hostNation": "칠레" },
+  { "recordId": "copaamerica-2019", "competitionId": "copaamerica", "season": "2019", "year": 2019, "championTeamId": "brazil", "runnerUpTeamId": "peru", "score": "3-1", "venue": "마라카낭, 리우데자네이루", "hostNation": "브라질" },
+  { "recordId": "copaamerica-2021", "competitionId": "copaamerica", "season": "2021", "year": 2021, "championTeamId": "argentina", "runnerUpTeamId": "brazil", "score": "1-0", "venue": "마라카낭, 리우데자네이루", "hostNation": "브라질" },
+  { "recordId": "copaamerica-2024", "competitionId": "copaamerica", "season": "2024", "year": 2024, "championTeamId": "argentina", "runnerUpTeamId": "colombia", "score": "1-0 (연장전)", "venue": "하드 록 스타디움, 마이애미", "hostNation": "미국" }
+]

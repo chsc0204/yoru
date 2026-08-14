@@ -1,0 +1,6 @@
+<svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="아르헨티나 국기">
+  <rect width="30" height="20" fill="#f6f6f6" />
+  <rect width="30" height="6.67" y="0" fill="#74acdf" />
+  <rect width="30" height="6.67" y="13.33" fill="#74acdf" />
+  <circle cx="15" cy="10" r="2.6" fill="#f6b40e" stroke="#85340a" stroke-width="0.3" />
+</svg>

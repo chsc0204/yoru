@@ -1,0 +1,11 @@
+[
+  { "recordId": "ligue1-2001-02", "competitionId": "ligue1", "season": "2001-02", "year": 2002, "championTeamId": "lyon", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2007-08", "competitionId": "ligue1", "season": "2007-08", "year": 2008, "championTeamId": "lyon", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2009-10", "competitionId": "ligue1", "season": "2009-10", "year": 2010, "championTeamId": "marseille", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2012-13", "competitionId": "ligue1", "season": "2012-13", "year": 2013, "championTeamId": "psg", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2015-16", "competitionId": "ligue1", "season": "2015-16", "year": 2016, "championTeamId": "psg", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2016-17", "competitionId": "ligue1", "season": "2016-17", "year": 2017, "championTeamId": "monaco", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2019-20", "competitionId": "ligue1", "season": "2019-20", "year": 2020, "championTeamId": "psg", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2023-24", "competitionId": "ligue1", "season": "2023-24", "year": 2024, "championTeamId": "psg", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null },
+  { "recordId": "ligue1-2024-25", "competitionId": "ligue1", "season": "2024-25", "year": 2025, "championTeamId": "psg", "runnerUpTeamId": null, "score": null, "venue": null, "hostNation": null }
+]

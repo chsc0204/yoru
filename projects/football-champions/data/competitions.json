@@ -1,0 +1,92 @@
+[
+  {
+    "competitionId": "ucl",
+    "name": "UEFA 챔피언스리그",
+    "shortName": "UCL",
+    "type": "club",
+    "tier": "continental-cup",
+    "confederation": "UEFA",
+    "recordsFile": "records/ucl.json"
+  },
+  {
+    "competitionId": "uel",
+    "name": "UEFA 유로파리그",
+    "shortName": "UEL",
+    "type": "club",
+    "tier": "continental-cup",
+    "confederation": "UEFA",
+    "recordsFile": "records/uel.json"
+  },
+  {
+    "competitionId": "epl",
+    "name": "프리미어리그",
+    "shortName": "EPL",
+    "type": "club",
+    "tier": "domestic-league",
+    "confederation": "UEFA",
+    "recordsFile": "records/epl.json"
+  },
+  {
+    "competitionId": "laliga",
+    "name": "라리가",
+    "shortName": "La Liga",
+    "type": "club",
+    "tier": "domestic-league",
+    "confederation": "UEFA",
+    "recordsFile": "records/laliga.json"
+  },
+  {
+    "competitionId": "seriea",
+    "name": "세리에 A",
+    "shortName": "Serie A",
+    "type": "club",
+    "tier": "domestic-league",
+    "confederation": "UEFA",
+    "recordsFile": "records/seriea.json"
+  },
+  {
+    "competitionId": "bundesliga",
+    "name": "분데스리가",
+    "shortName": "Bundesliga",
+    "type": "club",
+    "tier": "domestic-league",
+    "confederation": "UEFA",
+    "recordsFile": "records/bundesliga.json"
+  },
+  {
+    "competitionId": "ligue1",
+    "name": "리그 1",
+    "shortName": "Ligue 1",
+    "type": "club",
+    "tier": "domestic-league",
+    "confederation": "UEFA",
+    "recordsFile": "records/ligue1.json"
+  },
+  {
+    "competitionId": "worldcup",
+    "name": "FIFA 월드컵",
+    "shortName": "World Cup",
+    "type": "national-team",
+    "tier": "international",
+    "confederation": "FIFA",
+    "recordsFile": "records/worldcup.json"
+  },
+  {
+    "competitionId": "euro",
+    "name": "UEFA 유러피언 챔피언십",
+    "shortName": "Euro",
+    "type": "national-team",
+    "tier": "international",
+    "confederation": "UEFA",
+    "recordsFile": "records/euro.json"
+  },
+  {
+    "competitionId": "copaamerica",
+    "name": "코파 아메리카",
+    "shortName": "Copa América",
+    "type": "national-team",
+    "tier": "international",
+    "confederation": "CONMEBOL",
+    "recordsFile": "records/copaamerica.json"
+  }
+]
