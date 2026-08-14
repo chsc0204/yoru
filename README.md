@@ -6,50 +6,6 @@
 
 ---
 
-## Architecture
-
-```
-power sell/
-├── index.html                — 메인 포트폴리오 페이지 (Hero/About/Skills/Projects/Playground/Journey/Tools/Contact)
-├── style.css                 — 포트폴리오 전체 스타일 (라이트·다크 테마 변수 포함)
-├── script.js                 — Navigation, 검색, Skills/Projects/Playground 렌더링 등 전체 로직
-├── README.md                 — 이 문서
-├── portfolio-summary.md      — 포트폴리오 전체 내용을 정리한 제출용 요약 문서
-├── review.md                 — 그날그날 배운 내용을 정리한 학습 복습 노트
-├── assets/
-│   ├── images/                — 프로필 사진 등 포트폴리오 홈에서 쓰는 이미지
-│   └── icons/                 — (예약 폴더)
-└── projects/                  — 포트폴리오 Projects 카드로 소개하는 실습 프로젝트 모음
-    ├── phone-case-shop/        — 폰케이스 쇼핑몰. HTML/CSS/JS, 카테고리 필터·장바구니·다크 모드
-    ├── snake-game/
-    │   └── snake_game.py       — pygame으로 만든 스네이크 게임
-    ├── object-detector.html    — TensorFlow.js 물체 탐지 웹앱 (단일 파일로 구성)
-    ├── football-champions/     — 축구 우승팀 아카이브 SPA (css/js/data 폴더 구조, fetch 사용으로 로컬 서버 필요)
-    ├── ai-tools-report/        — AI 도구 리서치 리포트 (html · pdf · docx · md 원본 파일 포함)
-    └── jpop-archive/           — J-POP 아카이브 SPA (js/data, js/pages 폴더 구조, 해시 라우터)
-```
-
-`phone-case-shop/`, `football-champions/`, `ai-tools-report/`, `jpop-archive/`는 폴더 안에
-각자의 README.md가 따로 있어 더 자세한 구성을 확인할 수 있습니다. `snake-game/`과
-`object-detector.html`은 파일 구성이 단순해 별도 README 없이 이 문서로 충분합니다.
-
-### 왜 이렇게 구조를 나눴나
-
-메인 포트폴리오 사이트(`index.html`/`style.css`/`script.js`)와 실습 프로젝트들을 명확히
-분리해서, `index.html`은 오직 "소개하는 화면" 역할만 하고 실제 프로젝트 코드는 전부
-`projects/` 아래 각자의 폴더에 두었습니다. 그 결과 `projects/`의 각 폴더는 서로 의존성 없이
-독립적으로 실행·테스트할 수 있습니다 — 자체 HTML/CSS/JS(또는 `.py`)를 그대로 가지고 있어서,
-포트폴리오 홈을 거치지 않고 해당 폴더만 열어도(또는 GitHub Pages의 하위 경로로 바로 접속해도)
-완전히 동작합니다.
-
-같은 이유로 각 프로젝트는 데이터/스타일을 서로 공유하지 않고 폴더 안에서 전부 자체 완결적으로
-관리합니다. `phone-case-shop/`, `jpop-archive/`, `object-detector.html`처럼 데이터를 JS 파일로
-직접 관리하는 프로젝트는 더블클릭(`file://`)만으로 열리는 반면, `football-champions/`는
-`fetch`로 JSON을 불러오는 구조라 로컬 서버가 필요합니다 — 이렇게 프로젝트마다 실행 방식이
-다른 것도, 각 폴더를 배운 시점 그대로의 독립적인 결과물로 남겨두었기 때문입니다.
-
----
-
 ## 메인 포트폴리오 사이트 (`index.html`)
 
 `index.html`이 이 저장소의 **메인 포트폴리오 웹페이지**입니다. 순수 HTML/CSS/JavaScript로
@@ -98,6 +54,50 @@ Project/Note Modal, Playground 기능 등), `assets/`(아이콘·이미지).
 `review.md`는 그날그날 배운 내용을 정리한 학습 복습 노트입니다. 파일/폴더 확장자 자동
 분류, Git/GitHub 기본 명령어(init/add/commit/push), pygame 게임 루프 설계 등 그날의
 핵심 개념과 실제 사용한 코드를 함께 기록해둔 문서입니다.
+
+---
+
+## Architecture
+
+```
+power sell/
+├── index.html                — 메인 포트폴리오 페이지 (Hero/About/Skills/Projects/Playground/Journey/Tools/Contact)
+├── style.css                 — 포트폴리오 전체 스타일 (라이트·다크 테마 변수 포함)
+├── script.js                 — Navigation, 검색, Skills/Projects/Playground 렌더링 등 전체 로직
+├── README.md                 — 이 문서
+├── portfolio-summary.md      — 포트폴리오 전체 내용을 정리한 제출용 요약 문서
+├── review.md                 — 그날그날 배운 내용을 정리한 학습 복습 노트
+├── assets/
+│   ├── images/                — 프로필 사진 등 포트폴리오 홈에서 쓰는 이미지
+│   └── icons/                 — (예약 폴더)
+└── projects/                  — 포트폴리오 Projects 카드로 소개하는 실습 프로젝트 모음
+    ├── phone-case-shop/        — 폰케이스 쇼핑몰. HTML/CSS/JS, 카테고리 필터·장바구니·다크 모드
+    ├── snake-game/
+    │   └── snake_game.py       — pygame으로 만든 스네이크 게임
+    ├── object-detector.html    — TensorFlow.js 물체 탐지 웹앱 (단일 파일로 구성)
+    ├── football-champions/     — 축구 우승팀 아카이브 SPA (css/js/data 폴더 구조, fetch 사용으로 로컬 서버 필요)
+    ├── ai-tools-report/        — AI 도구 리서치 리포트 (html · pdf · docx · md 원본 파일 포함)
+    └── jpop-archive/           — J-POP 아카이브 SPA (js/data, js/pages 폴더 구조, 해시 라우터)
+```
+
+`phone-case-shop/`, `football-champions/`, `ai-tools-report/`, `jpop-archive/`는 폴더 안에
+각자의 README.md가 따로 있어 더 자세한 구성을 확인할 수 있습니다. `snake-game/`과
+`object-detector.html`은 파일 구성이 단순해 별도 README 없이 이 문서로 충분합니다.
+
+### 왜 이렇게 구조를 나눴나
+
+메인 포트폴리오 사이트(`index.html`/`style.css`/`script.js`)와 실습 프로젝트들을 명확히
+분리해서, `index.html`은 오직 "소개하는 화면" 역할만 하고 실제 프로젝트 코드는 전부
+`projects/` 아래 각자의 폴더에 두었습니다. 그 결과 `projects/`의 각 폴더는 서로 의존성 없이
+독립적으로 실행·테스트할 수 있습니다 — 자체 HTML/CSS/JS(또는 `.py`)를 그대로 가지고 있어서,
+포트폴리오 홈을 거치지 않고 해당 폴더만 열어도(또는 GitHub Pages의 하위 경로로 바로 접속해도)
+완전히 동작합니다.
+
+같은 이유로 각 프로젝트는 데이터/스타일을 서로 공유하지 않고 폴더 안에서 전부 자체 완결적으로
+관리합니다. `phone-case-shop/`, `jpop-archive/`, `object-detector.html`처럼 데이터를 JS 파일로
+직접 관리하는 프로젝트는 더블클릭(`file://`)만으로 열리는 반면, `football-champions/`는
+`fetch`로 JSON을 불러오는 구조라 로컬 서버가 필요합니다 — 이렇게 프로젝트마다 실행 방식이
+다른 것도, 각 폴더를 배운 시점 그대로의 독립적인 결과물로 남겨두었기 때문입니다.
 
 ---
 
