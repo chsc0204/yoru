@@ -398,7 +398,7 @@ const projects = [
     ],
     process: "Similarweb, a16z, Menlo Ventures, Stack Overflow Developer Survey 등 여러 출처를 종합해 조사 방법론을 설계하고 카테고리별로 데이터를 정리했습니다.",
     learned: "여러 출처의 지표를 교차 검증해 신뢰도 있는 리서치 리포트를 구성하는 방법과, 하나의 리포트를 HTML/PDF/Word/Markdown 등 다양한 형식으로 배포하는 방법을 익혔습니다.",
-    github: null,
+    github: `${REPO_URL}/tree/main/projects/ai-tools-report`,
     demo: "projects/ai-tools-report/index.html",
   },
 ];
