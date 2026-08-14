@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function () {
+    // Default is dark mode; a saved "light" preference is the only opt-out.
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem("theme") === "light" ? "light" : "dark";
+    } catch (e) {
+      document.documentElement.dataset.theme = "dark";
+    }
+  })();
+</script>
+<title>My Development Journey — 개발 학습 &amp; 프로젝트 포트폴리오</title>
+<meta name="description" content="HTML/CSS, JavaScript, Python, Git/GitHub를 학습하며 만든 프로젝트와 실습을 소개하는 개인 개발자 포트폴리오입니다.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main" style="position:absolute;left:-999px;top:auto;">본문 바로가기</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container">
+    <a href="#home" class="logo">My <span>Dev</span> Journey</a>
+
+    <div class="header-actions">
+      <nav aria-label="주요 메뉴">
+        <ul class="nav-list" id="navList">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#playground">Playground</a></li>
+          <li><a href="#journey">Learning</a></li>
+          <li><a href="#dev-notes">Dev Notes</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#activity">Activity</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="true" aria-label="라이트 모드로 전환">
+        <span data-icon="sun"></span>
+      </button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navList">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <div class="hero-path" aria-hidden="true">
+          <span>HTML/CSS</span> → <span>JavaScript</span> → <span>Python</span> → <span>Git/GitHub</span> → <span>AI</span> → <span>Web Development</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="kicker">MY DEVELOPMENT JOURNEY</span>
+          배운 것을 코드로 만들고,<br>
+          코드로 <span class="accent">경험</span>을 쌓다.
+        </h1>
+        <p class="hero-lead">
+          웹 개발부터 Python 게임, Git/GitHub, AI 프로젝트까지
+          직접 배우고 만들어본 개발 학습 포트폴리오입니다.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="#playground" class="btn btn-outline">Explore Playground</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-number" data-count-target="7" data-count-suffix="+">0+</div>
+            <div class="stat-label">Learning Areas</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count-target="5" data-count-suffix="+">0+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-count-target="6" data-count-suffix="+">0+</div>
+            <div class="stat-label">Tools</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Curiosity</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual-wrap">
+        <span class="hero-badge glass b1"><span data-icon="html"></span> HTML/CSS</span>
+        <span class="hero-badge glass b2"><span data-icon="js"></span> JavaScript</span>
+        <span class="hero-badge glass b3"><span data-icon="python"></span> Python</span>
+        <span class="hero-badge glass b4"><span data-icon="git"></span> Git/GitHub</span>
+        <span class="hero-badge glass b5"><span data-icon="ai"></span> AI</span>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <div class="terminal-body">
+<span class="prompt">&gt;</span> console.log(<span class="str">"Hello, Developer!"</span>);<br>
+<span class="prompt">&gt;</span> const skills = [<span class="str">"HTML"</span>, <span class="str">"CSS"</span>, <span class="str">"JS"</span>, <span class="str">"Python"</span>];<br>
+<span class="prompt">&gt;</span> <span class="fn">startLearning</span>();<br>
+<span class="prompt">&gt;</span> <span class="fn">buildProjects</span>();<br>
+<span class="prompt">&gt;</span> <span class="fn">keepGrowing</span>()<span class="cursor"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD ============ -->
+  <section id="dashboard" class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">At a glance</div>
+        <h2 class="section-title">Learning Dashboard</h2>
+        <p class="section-desc">지금까지의 학습과 결과물을 숫자로 정리했습니다.</p>
+      </div>
+
+      <div class="dashboard-grid" id="dashboardGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Get to know me</div>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-desc">개발을 어떻게 시작했고, 무엇을 경험했는지 소개합니다.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="profile-card reveal">
+          <div class="profile-avatar">YN</div>
+          <div class="profile-name">Your Name</div>
+          <div class="profile-role">Student Developer</div>
+
+          <dl>
+            <div class="profile-field">
+              <dt>Interests</dt>
+              <dd>Web Development / Programming / AI</dd>
+            </div>
+            <div class="profile-field">
+              <dt>Currently Learning</dt>
+              <dd>JavaScript 심화 &amp; 웹 프로젝트</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="story reveal">
+          <h3>My Story</h3>
+          <p>처음에는 웹페이지의 구조를 만드는 HTML/CSS에서 시작했습니다. 이후 JavaScript를 통해 웹페이지에 기능을 추가하는 방법을 배웠고, Python과 pygame을 활용해 게임도 직접 제작했습니다.</p>
+          <p>또한 Git과 GitHub를 이용해 프로젝트를 관리하고, Node.js, npm, Claude Code 등 다양한 개발 도구를 직접 사용하면서 단순히 코드를 작성하는 것뿐 아니라 개발 환경을 구성하고 프로젝트를 완성하는 과정까지 경험했습니다.</p>
+          <p>지금은 배운 내용을 실제로 동작하는 결과물로 만들어보는 데 집중하고 있으며, 이 포트폴리오도 그 과정 중 하나입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">What I've learned</div>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+        <p class="section-desc">직접 배우고 연습해온 기술들입니다.</p>
+      </div>
+
+      <div id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">What I've built</div>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">배운 기술을 실제로 활용해 만든 프로젝트들입니다.</p>
+      </div>
+
+      <div class="filter-bar" id="projectFilterBar"></div>
+      <div class="recently-viewed is-empty" id="recentlyViewed">
+        <span class="recently-viewed-label">최근 본 프로젝트:</span>
+        <span id="recentlyViewedList"></span>
+      </div>
+
+      <div class="grid grid-3" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Project detail modal -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+    <div class="modal">
+      <button class="modal-close" data-modal-close aria-label="닫기">&times;</button>
+      <div class="modal-media" aria-hidden="true" data-icon="code"></div>
+      <h3 class="modal-title" id="projectModalTitle"></h3>
+      <div class="project-tags modal-tags"></div>
+
+      <div class="modal-section">
+        <h4>Description</h4>
+        <p class="modal-desc"></p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Features</h4>
+        <ul class="modal-features"></ul>
+      </div>
+      <div class="modal-section">
+        <h4>Process</h4>
+        <p class="modal-process"></p>
+      </div>
+      <div class="modal-section">
+        <h4>Learned</h4>
+        <p class="modal-learned"></p>
+      </div>
+
+      <div class="modal-actions">
+        <a class="btn btn-outline modal-github" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary modal-demo" target="_blank" rel="noopener">Demo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ WHAT I LEARNED ============ -->
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Beyond the syllabus</div>
+        <h2 class="section-title">What I Learned</h2>
+        <p class="section-desc">"OO를 배웠다"가 아니라, 실제로 이해하게 된 것들입니다. 카드를 클릭하면 자세히 볼 수 있습니다.</p>
+      </div>
+
+      <div class="grid grid-2" id="learnedGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ PLAYGROUND ============ -->
+  <section id="playground" class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Try it yourself</div>
+        <h2 class="section-title">Interactive Playground</h2>
+        <p class="section-desc">직접 배운 JavaScript로 만든 기능을 지금 바로 실행해볼 수 있습니다.</p>
+      </div>
+
+      <div class="grid grid-3">
+
+        <!-- 01 Month-end calculator -->
+        <div class="card playground-card reveal">
+          <div class="playground-icon" data-icon="calendar"></div>
+          <h3>월말 날짜 계산기</h3>
+          <p>연도와 월을 입력하면 그 달이 며칠까지 있는지 알려줍니다.</p>
+          <button class="btn btn-primary btn-sm try-btn">Try it</button>
+          <div class="playground-body">
+            <form id="monthEndForm">
+              <div class="field-row">
+                <div class="field">
+                  <label for="monthEndYear">Year</label>
+                  <input type="number" id="monthEndYear" name="year" placeholder="2024" required>
+                </div>
+                <div class="field">
+                  <label for="monthEndMonth">Month</label>
+                  <input type="number" id="monthEndMonth" name="month" min="1" max="12" placeholder="2" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-outline btn-sm">Calculate</button>
+            </form>
+            <div class="pg-result" id="monthEndResult"></div>
+          </div>
+        </div>
+
+        <!-- 02 Leap year checker -->
+        <div class="card playground-card reveal">
+          <div class="playground-icon" data-icon="calendarCheck"></div>
+          <h3>윤년 판별기</h3>
+          <p>연도를 입력하면 윤년인지 아닌지 알려줍니다.</p>
+          <button class="btn btn-primary btn-sm try-btn">Try it</button>
+          <div class="playground-body">
+            <form id="leapYearForm">
+              <div class="field-row">
+                <div class="field">
+                  <label for="leapYear">Year</label>
+                  <input type="number" id="leapYear" name="year" placeholder="2024" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-outline btn-sm">Check</button>
+            </form>
+            <div class="pg-result" id="leapYearResult"></div>
+          </div>
+        </div>
+
+        <!-- 03 Random number generator -->
+        <div class="card playground-card reveal">
+          <div class="playground-icon" data-icon="shuffle"></div>
+          <h3>Random Number Generator</h3>
+          <p>최솟값과 최댓값을 입력하고 랜덤 숫자를 생성합니다.</p>
+          <button class="btn btn-primary btn-sm try-btn">Try it</button>
+          <div class="playground-body">
+            <form id="randomForm">
+              <div class="field-row">
+                <div class="field">
+                  <label for="randomMin">Min</label>
+                  <input type="number" id="randomMin" name="min" placeholder="1" required>
+                </div>
+                <div class="field">
+                  <label for="randomMax">Max</label>
+                  <input type="number" id="randomMax" name="max" placeholder="100" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-outline btn-sm">Generate</button>
+            </form>
+            <div class="pg-result" id="randomResult"></div>
+          </div>
+        </div>
+
+        <!-- 04 Color generator -->
+        <div class="card playground-card reveal">
+          <div class="playground-icon" data-icon="palette"></div>
+          <h3>Color Generator</h3>
+          <p>버튼을 클릭하면 랜덤 색상과 HEX / RGB 값을 보여줍니다.</p>
+          <button class="btn btn-primary btn-sm try-btn">Try it</button>
+          <div class="playground-body">
+            <div class="color-preview" id="colorPreview"></div>
+            <div class="color-values">
+              <span id="colorHex">#FFFFFF</span>
+              <span id="colorRgb">rgb(255, 255, 255)</span>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" id="colorGenerateBtn">Generate Color</button>
+          </div>
+        </div>
+
+        <!-- 05 Calculator -->
+        <div class="card playground-card reveal">
+          <div class="playground-icon" data-icon="calculator"></div>
+          <h3>Simple Calculator</h3>
+          <p>더하기, 빼기, 곱하기, 나누기를 계산합니다.</p>
+          <button class="btn btn-primary btn-sm try-btn">Try it</button>
+          <div class="playground-body">
+            <div class="calc-display" id="calcDisplay">0</div>
+            <div class="calc-keys" id="calcKeys">
+              <button type="button" data-action="clear">C</button>
+              <button type="button" data-value="0">0</button>
+              <button type="button" data-action="decimal">.</button>
+              <button type="button" class="op" data-action="operator" data-value="÷">÷</button>
+              <button type="button" data-value="7">7</button>
+              <button type="button" data-value="8">8</button>
+              <button type="button" data-value="9">9</button>
+              <button type="button" class="op" data-action="operator" data-value="×">×</button>
+              <button type="button" data-value="4">4</button>
+              <button type="button" data-value="5">5</button>
+              <button type="button" data-value="6">6</button>
+              <button type="button" class="op" data-action="operator" data-value="-">-</button>
+              <button type="button" data-value="1">1</button>
+              <button type="button" data-value="2">2</button>
+              <button type="button" data-value="3">3</button>
+              <button type="button" class="op" data-action="operator" data-value="+">+</button>
+              <button type="button" class="eq" data-action="equals">=</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 Digital clock -->
+        <div class="card playground-card reveal">
+          <div class="playground-icon" data-icon="clock"></div>
+          <h3>Digital Clock</h3>
+          <p>현재 시간과 날짜를 실시간으로 보여줍니다.</p>
+          <button class="btn btn-primary btn-sm try-btn">Try it</button>
+          <div class="playground-body">
+            <div class="clock-display">
+              <div class="clock-time" id="clockTime">00:00:00</div>
+              <div class="clock-date" id="clockDate"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEARNING JOURNEY ============ -->
+  <section id="journey">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">How I got here</div>
+        <h2 class="section-title">Learning Journey</h2>
+        <p class="section-desc">지금까지 밟아온 학습 과정입니다.</p>
+      </div>
+
+      <div class="timeline" id="timelineGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ LEARNING ACTIVITY ============ -->
+  <section id="activity">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Study log</div>
+        <h2 class="section-title">Learning Activity</h2>
+        <p class="section-desc">GitHub 잔디에서 영감을 받은 가상의 학습 활동 기록입니다. 칸에 마우스를 올리거나 포커스하면 어떤 공부를 했는지 보여줍니다.</p>
+      </div>
+
+      <div class="activity-wrap reveal">
+        <div class="activity-grid" id="activityGrid"></div>
+      </div>
+      <p class="activity-tooltip" id="activityTooltip" aria-live="polite">칸 위에 마우스를 올려보세요.</p>
+
+      <div class="activity-legend">
+        <span>Less</span>
+        <span class="activity-cell" data-level="0"></span>
+        <span class="activity-cell" data-level="1"></span>
+        <span class="activity-cell" data-level="2"></span>
+        <span class="activity-cell" data-level="3"></span>
+        <span class="activity-cell" data-level="4"></span>
+        <span>More</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEV NOTES ============ -->
+  <section id="dev-notes" class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Notes to self</div>
+        <h2 class="section-title">Dev Notes</h2>
+        <p class="section-desc">개발하면서 공부한 내용을 짧게 정리한 노트입니다.</p>
+      </div>
+
+      <div class="grid grid-2" id="notesGrid"></div>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="noteModal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle">
+    <div class="modal">
+      <button class="modal-close" data-modal-close aria-label="닫기">&times;</button>
+      <h3 class="modal-title" id="noteModalTitle"></h3>
+      <div class="modal-section">
+        <p class="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TOOLS ============ -->
+  <section id="tools">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">My toolbox</div>
+        <h2 class="section-title">Tools I Use</h2>
+        <p class="section-desc">개발 과정에서 실제로 사용해온 도구들입니다.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card tool-card reveal">
+          <div class="tool-icon" data-icon="vscode"></div>
+          <div>
+            <h3>VS Code</h3>
+            <div class="tool-purpose">Code Editor</div>
+            <p class="tool-usage">HTML/CSS/JS와 Python 코드를 작성하고 디버깅하는 데 사용했습니다.</p>
+          </div>
+        </div>
+        <div class="card tool-card reveal">
+          <div class="tool-icon" data-icon="git"></div>
+          <div>
+            <h3>Git</h3>
+            <div class="tool-purpose">Version Control</div>
+            <p class="tool-usage">프로젝트의 변경 이력을 커밋 단위로 기록하고 관리하는 데 사용했습니다.</p>
+          </div>
+        </div>
+        <div class="card tool-card reveal">
+          <div class="tool-icon" data-icon="github"></div>
+          <div>
+            <h3>GitHub</h3>
+            <div class="tool-purpose">Repository / Deployment</div>
+            <p class="tool-usage">로컬 프로젝트를 원격 저장소에 올리고 버전을 공유하는 데 사용했습니다.</p>
+            <a class="tool-link" href="https://github.com/chsc0204" target="_blank" rel="noopener">github.com/chsc0204 ↗</a>
+          </div>
+        </div>
+        <div class="card tool-card reveal">
+          <div class="tool-icon" data-icon="node"></div>
+          <div>
+            <h3>Node.js</h3>
+            <div class="tool-purpose">JavaScript Runtime</div>
+            <p class="tool-usage">브라우저 밖에서 JavaScript를 실행하고 개발 환경을 구성하는 데 사용했습니다.</p>
+          </div>
+        </div>
+        <div class="card tool-card reveal">
+          <div class="tool-icon" data-icon="npm"></div>
+          <div>
+            <h3>npm</h3>
+            <div class="tool-purpose">Package Management</div>
+            <p class="tool-usage">필요한 패키지를 설치하고 프로젝트 의존성을 관리하는 데 사용했습니다.</p>
+          </div>
+        </div>
+        <div class="card tool-card reveal">
+          <div class="tool-icon" data-icon="ai"></div>
+          <div>
+            <h3>Claude Code</h3>
+            <div class="tool-purpose">AI Coding Assistant</div>
+            <p class="tool-usage">요구사항을 정리하고 코드를 작성·수정하는 개발 워크플로우 전반에 활용했습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GIT WORKFLOW ============ -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Version control in action</div>
+        <h2 class="section-title">Git Workflow</h2>
+        <p class="section-desc">로컬 프로젝트가 실제 웹사이트로 배포되기까지의 과정입니다.</p>
+      </div>
+
+      <div class="workflow-row reveal">
+        <div class="workflow-step">
+          <strong>Local Project</strong>
+          <div class="workflow-tip">내 컴퓨터에서 코드를 작성합니다.</div>
+        </div>
+        <span class="workflow-arrow">→</span>
+        <div class="workflow-step">
+          <strong>git init</strong>
+          <div class="workflow-tip">폴더를 Git 저장소로 초기화합니다.</div>
+        </div>
+        <span class="workflow-arrow">→</span>
+        <div class="workflow-step">
+          <strong>git add</strong>
+          <div class="workflow-tip">변경 사항을 커밋 후보로 등록합니다.</div>
+        </div>
+        <span class="workflow-arrow">→</span>
+        <div class="workflow-step">
+          <strong>git commit</strong>
+          <div class="workflow-tip">하나의 저장 지점으로 기록합니다.</div>
+        </div>
+        <span class="workflow-arrow">→</span>
+        <div class="workflow-step">
+          <strong>git push</strong>
+          <div class="workflow-tip">원격 저장소에 업로드합니다.</div>
+        </div>
+        <span class="workflow-arrow">→</span>
+        <div class="workflow-step">
+          <strong>GitHub Repository</strong>
+          <div class="workflow-tip">코드가 온라인에 저장됩니다.</div>
+        </div>
+        <span class="workflow-arrow">→</span>
+        <div class="workflow-step">
+          <strong>GitHub Pages</strong>
+          <div class="workflow-tip">정적 사이트로 배포됩니다.</div>
+        </div>
+        <span class="workflow-arrow">→</span>
+        <div class="workflow-step">
+          <strong>Live Website</strong>
+          <div class="workflow-tip">누구나 접속할 수 있습니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FUN SECTION ============ -->
+  <section class="fun-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Just for fun</div>
+        <h2 class="section-title">Developer Mode</h2>
+        <p class="section-desc">포트폴리오가 너무 딱딱하지만은 않도록, 작은 재미 요소를 준비했습니다.</p>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="btn btn-primary" id="devModeBtn">Activate Developer Mode</button>
+      </div>
+
+      <div class="dev-terminal reveal">
+        <div class="terminal-bar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+        </div>
+        <div class="terminal-body" id="devModeOutput"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner reveal">
+        <div class="eyebrow">Get in touch</div>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-desc">새로운 것을 배우고 직접 만들어가는 과정을 계속하고 있습니다.</p>
+
+        <div class="contact-links">
+          <a class="contact-link" href="https://github.com/chsc0204" target="_blank" rel="noopener">
+            <span data-icon="github"></span> GitHub
+          </a>
+          <a class="contact-link" href="mailto:your-email@example.com">
+            <span data-icon="mail"></span> your-email@example.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="logo">My Development Journey</div>
+    <p class="footer-tagline">배운 것을 직접 만들고, 만든 것을 기록합니다.</p>
+
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#home">Portfolio</a>
+      <a href="#journey">Learning Journey</a>
+      <a href="#skills">Technologies</a>
+      <a href="#projects">Projects</a>
+      <a href="https://github.com/chsc0204" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+
+    <p class="footer-copy">© 2026 My Development Portfolio</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="맨 위로">
+  <span data-icon="arrowUp"></span>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
