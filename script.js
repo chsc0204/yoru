@@ -382,7 +382,7 @@ const projects = [
     ],
     process: "프로젝트 제안서의 요구사항을 기준으로 프레젠테이션/상태/데이터 접근 계층을 분리해 설계했습니다. fetch로 JSON 데이터를 불러오는 구조라 로컬 서버로 열어야 정상 동작합니다.",
     learned: "데이터 구조 설계와, 프레임워크 없이 상태 관리·라우팅을 직접 구현하는 방법을 배웠습니다.",
-    github: `${REPO_URL}`,
+    github: `${REPO_URL}/tree/main/projects/football-champions`,
     demo: "projects/football-champions/index.html",
   },
   {
