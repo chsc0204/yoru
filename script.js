@@ -401,6 +401,22 @@ const projects = [
     github: `${REPO_URL}/tree/main/projects/ai-tools-report`,
     demo: "projects/ai-tools-report/index.html",
   },
+  {
+    title: "J-POP Archive",
+    category: "HTML / CSS / JavaScript",
+    filterCategories: ["HTML/CSS", "JavaScript"],
+    tags: ["HTML", "CSS", "JavaScript", "Chart.js"],
+    description: "아티스트/곡/앨범 정보와 랭킹, 일본어 학습 퀴즈까지 포함한 SPA(싱글 페이지 애플리케이션).",
+    features: [
+      "아티스트 · 곡 · 앨범 탐색, 검색/필터/정렬, 즐겨찾기(localStorage)",
+      "Rankings(Top Artists/Songs/Albums) + Chart.js 통계 시각화",
+      "Japanese Study — JLPT 레벨별 학습 카드 + 랜덤 퀴즈",
+    ],
+    process: "해시 라우터로 9개 페이지를 전환하는 프레임워크 없는 SPA 구조로 설계하고, fetch/JSON 대신 순수 JS 데이터 파일로 관리해 file://로도 바로 열리도록 만들었습니다.",
+    learned: "해시 기반 라우팅과 Chart.js 캔버스 재사용(destroy) 처리, localStorage로 즐겨찾기/최근 본 항목을 관리하는 방법을 익혔습니다.",
+    github: null,
+    demo: "projects/jpop-archive/index.html",
+  },
 ];
 
 function initProjects() {
