@@ -414,7 +414,7 @@ const projects = [
     ],
     process: "해시 라우터로 9개 페이지를 전환하는 프레임워크 없는 SPA 구조로 설계하고, fetch/JSON 대신 순수 JS 데이터 파일로 관리해 file://로도 바로 열리도록 만들었습니다.",
     learned: "해시 기반 라우팅과 Chart.js 캔버스 재사용(destroy) 처리, localStorage로 즐겨찾기/최근 본 항목을 관리하는 방법을 익혔습니다.",
-    github: null,
+    github: `${REPO_URL}/tree/main/projects/jpop-archive`,
     demo: "projects/jpop-archive/index.html",
   },
 ];
