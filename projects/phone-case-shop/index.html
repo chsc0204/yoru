@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CASE STORE | 프리미엄 폰케이스 쇼핑몰</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 상단 네비게이션 -->
+  <header class="navbar">
+    <div class="nav-container">
+      <button type="button" class="logo" data-goto="home" aria-label="홈으로 이동">📱 CASE STORE</button>
+
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#" class="nav-link active" data-page="home">HOME</a>
+        <a href="#" class="nav-link" data-page="products">SHOP</a>
+        <a href="#" class="nav-link" data-scroll-to="about">ABOUT</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box" id="search-box">
+          <label for="search-input" class="sr-only">상품 검색</label>
+          <input type="search" id="search-input" placeholder="상품명을 검색하세요" autocomplete="off">
+        </div>
+        <button type="button" class="icon-btn" id="search-toggle" aria-label="검색창 열기">🔍</button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="다크 모드로 전환">🌙</button>
+        <button type="button" class="icon-btn cart-icon-btn" id="cart-toggle" aria-label="장바구니 열기">
+          🛒 <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main class="main-content">
+
+    <!-- 홈 -->
+    <section id="home-page" class="page active">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-text">
+          <p class="hero-kicker">NEW SEASON COLLECTION</p>
+          <h1>YOUR STYLE,<br>YOUR CASE.</h1>
+          <p class="hero-sub">일상을 더 특별하게 만드는 폰케이스</p>
+          <button type="button" class="btn btn-primary btn-cta" data-goto="products">SHOP NOW</button>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=700&h=700&fit=crop" alt="프리미엄 폰케이스 제품 이미지">
+        </div>
+      </section>
+
+      <!-- 프로모션 슬라이더 -->
+      <div class="slider">
+        <div class="slider-track">
+          <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&h=500&fit=crop" alt="스마트폰 케이스 프로모션 1">
+            <div class="slide-caption">
+              <h2>프리미엄 폰케이스</h2>
+              <p>당신의 스마트폰을 완벽하게 보호하세요</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=1200&h=500&fit=crop" alt="스마트폰 케이스 프로모션 2">
+            <div class="slide-caption">
+              <h2>다양한 디자인</h2>
+              <p>개성 넘치는 케이스로 나만의 스타일을 완성하세요</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="https://images.unsplash.com/photo-1598327275663-68a9c7b5036a?w=1200&h=500&fit=crop" alt="스마트폰 케이스 프로모션 3">
+            <div class="slide-caption">
+              <h2>특별 할인 이벤트</h2>
+              <p>지금 구매하면 최대 30% 할인!</p>
+            </div>
+          </div>
+        </div>
+        <button class="slider-btn prev" aria-label="이전 슬라이드">&#10094;</button>
+        <button class="slider-btn next" aria-label="다음 슬라이드">&#10095;</button>
+        <div class="slider-dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+        </div>
+      </div>
+
+      <!-- 베스트 셀러 -->
+      <section class="best-sellers-section">
+        <div class="section-heading">
+          <h2>BEST SELLERS</h2>
+          <p>지금 가장 사랑받는 케이스를 만나보세요</p>
+        </div>
+        <div class="products-grid" id="best-sellers-grid"></div>
+      </section>
+
+      <!-- 브랜드 소개 -->
+      <section class="about-section" id="about">
+        <h2 class="section-title">ABOUT OUR BRAND</h2>
+        <p class="about-quote">"작은 디테일로 완성하는 나만의 스타일."</p>
+        <p class="intro-text">
+          CASE STORE는 다양한 스마트폰 케이스를 합리적인 가격에 제공하는 온라인 쇼핑몰입니다.
+          프리미엄 소재와 세련된 디자인으로 여러분의 소중한 스마트폰을 보호해 드립니다.
+        </p>
+        <div class="intro-cards">
+          <div class="intro-card">
+            <div class="intro-icon">🛡️</div>
+            <h3>강력한 보호</h3>
+            <p>충격 흡수 소재로 스마트폰을 안전하게 보호합니다.</p>
+          </div>
+          <div class="intro-card">
+            <div class="intro-icon">🎨</div>
+            <h3>다양한 디자인</h3>
+            <p>100가지 이상의 디자인 중 나만의 케이스를 찾아보세요.</p>
+          </div>
+          <div class="intro-card">
+            <div class="intro-icon">🚚</div>
+            <h3>빠른 배송</h3>
+            <p>주문 후 1~2일 이내 빠른 배송을 약속드립니다.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- 상품목록 -->
+    <section id="products-page" class="page">
+      <h2 class="page-title">SHOP</h2>
+
+      <div class="shop-toolbar">
+        <div class="category-filters" id="category-filters"></div>
+      </div>
+
+      <div class="products-grid" id="products-grid"></div>
+      <p class="no-results" id="no-results" hidden>검색 결과가 없습니다.</p>
+    </section>
+
+    <!-- Checkout -->
+    <section id="checkout-page" class="page checkout-page">
+      <h2 class="page-title">CHECKOUT</h2>
+
+      <div class="checkout-layout">
+        <form class="checkout-form" id="checkout-form">
+          <h3 class="form-heading">배송 정보</h3>
+
+          <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">연락처</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="010-0000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="address">배송 주소</label>
+            <input type="text" id="address" name="address" required autocomplete="street-address">
+          </div>
+
+          <div class="form-group">
+            <label for="addressDetail">상세 주소</label>
+            <input type="text" id="addressDetail" name="addressDetail" autocomplete="address-line2">
+          </div>
+
+          <div class="form-group">
+            <label for="request">요청사항</label>
+            <textarea id="request" name="request" rows="3" placeholder="배송 시 요청사항을 입력해주세요 (선택)"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-place-order">PLACE ORDER</button>
+        </form>
+
+        <aside class="order-summary">
+          <h3 class="form-heading">ORDER SUMMARY</h3>
+          <div class="summary-list" id="checkout-summary"></div>
+          <div class="summary-total-row">
+            <span>상품 금액</span>
+            <span id="checkout-subtotal">0원</span>
+          </div>
+          <div class="summary-total-row">
+            <span>배송비</span>
+            <span>3,000원</span>
+          </div>
+          <div class="summary-total-row summary-grand-total">
+            <span>총 결제 금액</span>
+            <span id="checkout-total">0원</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 주문 완료 -->
+    <section id="complete-page" class="page complete-page">
+      <div class="complete-box">
+        <div class="complete-icon">✓</div>
+        <h2>ORDER COMPLETE</h2>
+        <p class="complete-message">주문이 정상적으로 접수되었습니다.</p>
+
+        <div class="complete-detail">
+          <div class="complete-row">
+            <span>주문번호</span>
+            <strong id="order-number">-</strong>
+          </div>
+          <div class="complete-row">
+            <span>주문 금액</span>
+            <strong id="order-total">0원</strong>
+          </div>
+          <div class="complete-row">
+            <span>배송지</span>
+            <strong id="order-shipping-info">-</strong>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-goto="home">CONTINUE SHOPPING</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo footer-logo">📱 CASE STORE</div>
+        <p>작은 디테일로 완성하는 나만의 스타일.</p>
+      </div>
+      <nav class="footer-links">
+        <a href="#" data-goto="home">About</a>
+        <a href="#" data-goto="products">Shop</a>
+        <a href="#" data-scroll-to="about" class="footer-scroll">Contact</a>
+        <a href="#" data-scroll-to="about" class="footer-scroll">FAQ</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 CASE STORE. All rights reserved.</p>
+  </footer>
+
+  <!-- 장바구니 오버레이 -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+
+  <!-- 장바구니 사이드바(Drawer) -->
+  <aside class="cart-sidebar" id="cart-sidebar" aria-hidden="true">
+    <div class="cart-header">
+      <h3>YOUR CART</h3>
+      <button type="button" class="cart-close" id="cart-close" aria-label="장바구니 닫기">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p class="cart-empty">장바구니가 비어 있습니다.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">0원</span>
+      </div>
+      <button type="button" class="btn btn-primary btn-block" id="cart-checkout-btn">CHECKOUT</button>
+    </div>
+  </aside>
+
+  <!-- 상품 상세 모달 -->
+  <div class="modal-overlay" id="product-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="modal-close" aria-label="닫기">&times;</button>
+      <div class="modal-content" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast-container" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

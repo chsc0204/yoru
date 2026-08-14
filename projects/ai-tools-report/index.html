@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025년 하반기 가장 인기 있었던 AI 도구 조사 보고서</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;
+    line-height: 1.65;
+    color: #1a1a1a;
+    font-size: 11pt;
+    margin: 0;
+  }
+  .report-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+  }
+  h1 { font-size: 19pt; border-bottom: 3px solid #2b2f77; padding-bottom: 8px; margin-bottom: 18px; }
+  h2 { font-size: 14.5pt; color: #2b2f77; margin-top: 28px; border-left: 5px solid #2b2f77; padding-left: 8px; }
+  h3 { font-size: 12.5pt; color: #444; margin-top: 18px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 16px; font-size: 9.7pt; }
+  th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background-color: #2b2f77; color: #fff; }
+  tr:nth-child(even) td { background-color: #f5f6fb; }
+  a { color: #1a56db; text-decoration: none; }
+  blockquote {
+    background: #f2f3f9; border-left: 4px solid #2b2f77;
+    margin: 16px 0; padding: 10px 14px; font-size: 9.7pt; color: #444;
+  }
+  ul { margin: 6px 0; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 24px 0; }
+  ol li { margin-bottom: 5px; font-size: 9.7pt; }
+  p { margin: 8px 0; text-align: justify; }
+
+  /* ===== 원본 파일 다운로드 바 ===== */
+  .download-bar {
+    background: #2b2f77;
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    font-size: 10.5pt;
+  }
+  .download-bar strong {
+    font-size: 11pt;
+    letter-spacing: 0.02em;
+  }
+  .download-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .download-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 9.7pt;
+    transition: background 0.2s ease;
+  }
+  .download-links a:hover {
+    background: rgba(255, 255, 255, 0.24);
+  }
+
+  @media print {
+    .download-bar { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .download-bar { flex-direction: column; align-items: flex-start; }
+    .download-links { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="download-bar">
+  <strong>📄 원본 파일 다운로드</strong>
+  <div class="download-links">
+    <a href="AI도구_2025하반기_인기보고서.pdf" download>PDF 다운로드</a>
+    <a href="AI도구_2025하반기_인기보고서.docx" download>Word(.docx) 다운로드</a>
+    <a href="AI도구_2025하반기_인기보고서.md" download>Markdown(.md) 다운로드</a>
+  </div>
+</div>
+
+<div class="report-wrap">
+
+<h1>2025년 하반기 가장 인기 있었던 AI 도구 조사 보고서</h1>
+
+<h2>1. 조사 개요</h2>
+<ul>
+<li><strong>조사 대상 기간</strong>: 2025년 7월 ~ 12월 (2025년 하반기)</li>
+<li><strong>조사 범위</strong>: 대화형 챗봇, AI 코딩 어시스턴트, 이미지·영상 생성 도구, 생산성 통합 도구를 포함한 종합 AI 도구 시장</li>
+<li><strong>판단 기준</strong>: 특정 지표 하나가 아니라 ①웹·앱 트래픽, ②주간·월간 활성 사용자(WAU/MAU) 추정치, ③개발자 설문조사, ④투자은행·VC 리서치 보고서를 종합한 다지표 접근 방식을 사용</li>
+</ul>
+
+<h2>2. 조사 방법론</h2>
+<table>
+<tr><th>구분</th><th>조사 방법</th><th>활용 지표</th><th>대표 출처</th></tr>
+<tr><td>웹 트래픽 분석</td><td>유사 웹사이트 트래픽 데이터 비교</td><td>방문자 수, 순위 변동</td><td>Similarweb</td></tr>
+<tr><td>소비자 앱 랭킹</td><td>웹·모바일 앱 사용량 벤치마크</td><td>신규 진입 앱, 순위 이동</td><td>a16z Top 100 Gen AI Apps</td></tr>
+<tr><td>기업 도입 조사</td><td>기업 의사결정권자 대상 설문</td><td>투자 규모, 구매 vs 자체구축 비중</td><td>Menlo Ventures</td></tr>
+<tr><td>개발자 설문</td><td>대규모 개발자 커뮤니티 설문</td><td>도구 채택률, 신뢰도, 선호도</td><td>Stack Overflow 2025 Developer Survey</td></tr>
+<tr><td>언론·업계 동향</td><td>기술 매체·공식 발표 모니터링</td><td>신제품 출시, 사용자 수 발표</td><td>각 사 공식 발표, 기술 매체</td></tr>
+</table>
+<p>이 다섯 갈래 방법을 병행함으로써 트래픽 기준(대중적 인지도)과 실사용 기준(개발자·기업 채택)이라는 서로 다른 성격의 "인기"를 함께 포착하고자 했다.</p>
+
+<h2>3. 종합 결과 요약</h2>
+<p>2025년 하반기 AI 도구 시장을 한 줄로 요약하면 <strong>"ChatGPT의 1위 수성, Google Gemini의 맹추격, Anthropic Claude의 개발자 시장 급부상"</strong>이다. ChatGPT는 여전히 압도적인 트래픽과 사용자 수를 유지했지만, 하반기 내내 점유율이 서서히 잠식되었고 Gemini와 Claude, Grok 등 경쟁자들이 각자의 영역에서 뚜렷한 성장세를 보였다.</p>
+
+<h2>4. 카테고리별 인기 도구</h2>
+
+<h3>4.1 범용 AI 챗봇·어시스턴트</h3>
+<table>
+<tr><th>도구</th><th>규모 지표 (2025년 하반기 기준)</th><th>특이 동향</th></tr>
+<tr><td>ChatGPT</td><td>주간 활성 사용자 약 8억 명(2025년 5월 기준), 월간 방문 47억 회</td><td>여전히 부동의 1위, 그러나 트래픽 점유율은 서서히 하락</td></tr>
+<tr><td>Google Gemini</td><td>월간 활성 사용자 6.5억 명(2025년 11월)</td><td>a16z 랭킹에서 웹 2위, AI Studio·NotebookLM도 동반 상승</td></tr>
+<tr><td>Anthropic Claude</td><td>월간 활성 사용자 3천만 명 이상(2025년 2분기), 이후 급성장</td><td>코딩·업무용 중심으로 저변 확대</td></tr>
+<tr><td>xAI Grok</td><td>모바일 사용량 한 달새 약 40% 급증(2025년 7월)</td><td>Grok 4 출시 효과로 모바일에서 두드러진 성장</td></tr>
+<tr><td>Perplexity</td><td>a16z 랭킹 지속 상승</td><td>검색 대체형 AI로 꾸준한 성장세</td></tr>
+</table>
+
+<h3>4.2 AI 코딩 어시스턴트</h3>
+<p>2025년 하반기 가장 역동적인 카테고리는 개발자용 AI 코딩 도구였다. 시장 규모는 2025년 약 81.4억 달러로 추정되며, 개발자의 80~85%가 AI 코딩 도구를 사용하고 그중 51%는 매일 사용한다고 응답했다.</p>
+<table>
+<tr><th>도구</th><th>포지션</th><th>핵심 수치</th></tr>
+<tr><td>GitHub Copilot</td><td>사용자 수 기준 1위</td><td>2,000만 명 이상 사용자, 유료 구독 130만 명. 다만 전문 개발자 사용 비중은 67%→51%로 하락</td></tr>
+<tr><td>Cursor</td><td>매출 기준 최고 성장</td><td>연환산매출(ARR) 2025년 11월 10억 달러 → 2026년 3월 20억 달러로 3개월 만에 두 배 성장</td></tr>
+<tr><td>Claude Code</td><td>급부상하는 3위</td><td>직장 내 채택률 2025년 4월 3% → 2026년 1월 18%(6배 증가). 개발자 "가장 애정하는 도구" 비율 46%로 Cursor(19%)·Copilot(9%)를 크게 상회</td></tr>
+</table>
+<p>Menlo Ventures 보고서에 따르면 Anthropic은 18개월 연속 코딩 분야 1위를 지켰으며, 이 시장 규모만 약 40억 달러에 달한다.</p>
+
+<h3>4.3 이미지·영상 생성 AI</h3>
+<ul>
+<li><strong>Nano Banana(구글 Gemini 2.5 Flash Image)</strong>: 2025년 8월 출시 이후 대화형 편집 기능으로 큰 화제를 모으며 실사 편집·전자상거래 이미지 제작 분야에서 급속히 확산</li>
+<li><strong>Midjourney V7</strong>: 2025년 6월부터 기본 모델로 채택되며 예술적·영화적 스타일의 벤치마크로 자리매김</li>
+<li><strong>Sora 2</strong>: 텍스트·이미지를 오디오가 포함된 고품질 영상으로 변환하는 기능으로 영상 생성 분야 경쟁을 촉발</li>
+</ul>
+
+<h3>4.4 생산성 통합 도구</h3>
+<p>미국 소비자 대상 2025년 4분기 인기도 조사에서는 <strong>ChatGPT, Grammarly, Microsoft Copilot, Google Gemini</strong>가 상위 4개 자리를 차지했고, 디자인 도구 <strong>Canva</strong>가 5위(월간 방문 2.78억 회 이상)에 올랐다. 이는 순수 대화형 AI를 넘어 일상 업무·학습에 자연스럽게 녹아드는 도구가 폭넓은 인기를 얻었음을 보여준다.</p>
+
+<h2>5. 글로벌 웹 트래픽 순위 (Similarweb, 2025년 12월 기준)</h2>
+<table>
+<tr><th>전체 웹사이트 순위</th><th>서비스</th><th>전월 대비 변동</th></tr>
+<tr><td>5위</td><td>ChatGPT</td><td>변동 없음</td></tr>
+<tr><td>19위</td><td>Gemini</td><td>+7</td></tr>
+<tr><td>92위</td><td>DeepSeek</td><td>-1</td></tr>
+<tr><td>118위</td><td>Grok</td><td>+10</td></tr>
+<tr><td>170위</td><td>Character AI</td><td>+4</td></tr>
+<tr><td>182위</td><td>Perplexity</td><td>-15</td></tr>
+<tr><td>190위</td><td>Claude</td><td>-14</td></tr>
+<tr><td>362위</td><td>Microsoft Copilot</td><td>-44</td></tr>
+</table>
+<p>전체 웹사이트 대비 순위라는 점에서 절대적 규모 차이가 크게 드러나며, Gemini와 Grok의 상승세, Perplexity·Claude·Copilot의 순위 하락(트래픽 채널 특성상 앱 사용 비중 확대의 영향으로 추정)이 동시에 관찰된다.</p>
+
+<h2>6. 기업(엔터프라이즈) 도입 동향</h2>
+<p>Menlo Ventures의 2025년 생성형 AI 기업 도입 보고서(약 500개 미국 기업 대상 설문)에 따르면:</p>
+<ul>
+<li>기업의 생성형 AI 투자 규모가 2024년 115억 달러 → 2025년 370억 달러로 <strong>3배 이상 급증</strong></li>
+<li>2023년 이후 누적 투자는 17억 달러 → 370억 달러로 성장, 이는 전체 SaaS 시장의 6%를 차지</li>
+<li>생성형 AI 활용 사례 중 자체 구축 비중은 2024년 47%에서 2025년 24%로 감소, <strong>구매(외부 도구 도입) 비중이 76%</strong>로 확대</li>
+<li>전체 지출의 절반 이상이 코딩·업무 자동화 등 즉각적 생산성 향상이 가능한 애플리케이션에 집중</li>
+</ul>
+
+<h2>7. 개발자 커뮤니티 동향 (Stack Overflow 2025 Developer Survey)</h2>
+<ul>
+<li>AI 도구 사용(예정 포함) 비율 <strong>84%</strong>(2024년 76%에서 상승), 이 중 47.1%는 매일, 17.7%는 매주 사용</li>
+<li>OpenAI 계열 모델 사용률 81%로 여전히 최다 사용이나, Anthropic Claude Sonnet은 전문 개발자 사이에서 "가장 선호하는 모델"로 67.5% 지지를 받아 신뢰도·만족도 측면에서 강세</li>
+<li>다만 AI 응답을 신뢰한다는 응답은 29%에 그쳐 전년(40%) 대비 크게 하락 — 사용량 증가와 신뢰도 하락이 동시에 나타나는 역설적 흐름</li>
+</ul>
+
+<h2>8. 결론 및 시사점</h2>
+<p>종합적으로 볼 때 2025년 하반기 가장 인기 있었던 AI 도구는 여전히 <strong>ChatGPT</strong>로, 트래픽·사용자 수·범용성 모든 지표에서 1위를 유지했다. 그러나 하반기의 진짜 이야기는 챌린저들의 약진이다. <strong>Google Gemini</strong>는 나노바나나(Nano Banana) 이미지 생성 기능의 흥행과 함께 트래픽·사용자 수에서 ChatGPT를 가장 빠르게 추격했고, <strong>Anthropic Claude(Claude Code)</strong>는 개발자 시장에서 폭발적으로 성장하며 코딩이라는 고부가가치 카테고리를 사실상 장악했다. 여기에 <strong>Cursor</strong>의 매출 급성장과 <strong>Grok</strong>의 모바일 돌풍이 더해지며, 하반기 AI 도구 시장은 "ChatGPT 독주"에서 "다극 경쟁 체제"로 전환되는 변곡점을 지났다고 평가할 수 있다.</p>
+
+<hr>
+
+<h2>참고 자료 (출처)</h2>
+<ol>
+<li><a href="https://dataexplained.com/ai-2/most-popular-ai-tools-in-the-us/">Most Popular AI Tools in The US 2025 - Data Explained</a></li>
+<li><a href="https://aidiscoveries.io/top-10-most-used-ai-tools-in-the-world-2025-the-definitive-global-usage-report/">Top 10 Most Used AI Tools in The World 2025 - AI Discoveries</a></li>
+<li><a href="https://a16z.com/100-gen-ai-apps-6/">The Top 100 Gen AI Consumer Apps — 6th Edition, Andreessen Horowitz(a16z)</a></li>
+<li><a href="https://a16z.com/100-gen-ai-apps-5/">The Top 100 Gen AI Consumer Apps - 5th Edition, a16z</a></li>
+<li><a href="https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/">2025: The State of Generative AI in the Enterprise, Menlo Ventures</a></li>
+<li><a href="https://commandlinux.com/statistics/chatgpt-vs-gemini-vs-claude-usage-market-share">ChatGPT vs Gemini vs Claude Usage Market Share - Command Linux</a></li>
+<li><a href="https://sqmagazine.co.uk/chatgpt-claude-gemini-perplexity-statistics/">ChatGPT vs Claude vs Gemini vs Perplexity Statistics 2026 - SQ Magazine</a></li>
+<li><a href="https://www.ideaplan.io/blog/ai-coding-assistant-market-share-2026">Cursor vs GitHub Copilot Market Share (2026 Survey) - Ideaplan</a></li>
+<li><a href="https://uvik.net/blog/claude-code-vs-cursor-vs-copilot-vs-codex-2026/">Claude Code vs Cursor vs Copilot vs Codex - Uvik Software</a></li>
+<li><a href="https://uvik.net/blog/ai-coding-assistant-statistics/">AI Coding Assistant Statistics 2026: Adoption & Trust - Uvik Software</a></li>
+<li><a href="https://a2e.ai/nano-banana-vs-midjourney-which-image-ai-should-you-bet-in-2025/">Nano Banana vs Midjourney: Which Image AI Wins in 2025? - A2E AI</a></li>
+<li><a href="https://stackoverflow.co/company/press/archive/stack-overflow-2025-developer-survey/">Stack Overflow's 2025 Developer Survey Reveals Trust in AI at an All Time Low - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.blog/2025/12/29/developers-remain-willing-but-reluctant-to-use-ai-the-2025-developer-survey-results-are-here/">Developers remain willing but reluctant to use AI: 2025 Developer Survey results - Stack Overflow Blog</a></li>
+<li><a href="https://survey.stackoverflow.co/2025/ai/">AI | 2025 Stack Overflow Developer Survey</a></li>
+<li><a href="https://x.com/Similarweb/status/2009276764225253594">Similarweb 2025년 12월 생성형 AI 웹사이트 순위 발표(X/Twitter)</a></li>
+<li><a href="https://www.similarweb.com/blog/marketing/seo/most-used-ai/">Top AI Tools: Most Used Gen-AI in August 2025 - Similarweb</a></li>
+</ol>
+
+<blockquote>본 보고서는 2026년 8월 작성 시점에 공개적으로 확인 가능한 웹 자료를 종합한 것으로, 각 지표의 산출 방식·집계 시점이 출처마다 상이할 수 있어 상대적 추세 파악용 참고 자료로 활용하기를 권장한다.</blockquote>
+
+</div>
+</body>
+</html>
