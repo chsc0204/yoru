@@ -1,8 +1,8 @@
-# 10일 코딩 수업 포트폴리오
+# My Development Journey
 
-10일간의 코딩 수업에서 배운 내용을 실습하며 만든 개인 포트폴리오 저장소입니다.
-HTML/CSS, JavaScript, Python, Git/GitHub, AI 도구 활용까지 학습 과정을 코드로 직접
-만들어보고 기록하는 것을 목표로 합니다.
+코딩을 배우며 실습한 내용을 실제로 동작하는 프로젝트로 만들어보는 개인 포트폴리오
+저장소입니다. HTML/CSS, JavaScript, Python, Git/GitHub, AI 도구 활용까지 학습 과정을
+코드로 직접 만들어보고 기록하는 것을 목표로 합니다.
 
 ---
 
