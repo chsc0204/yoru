@@ -1,0 +1,191 @@
+/* ============================================================
+   Tablet (~768px ~ 1199px)
+   ============================================================ */
+@media (max-width: 1199px) {
+  .grid-artists,
+  .grid-albums {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .detail-hero {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-search {
+    width: 200px;
+  }
+}
+
+/* ============================================================
+   Mobile (≤767px, 특히 ≤480px 세부 대응)
+   ============================================================ */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .nav-container {
+    gap: 10px;
+  }
+
+  .nav-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+    margin-left: 0;
+    z-index: 250;
+  }
+
+  .nav-menu.open {
+    max-height: 480px;
+    overflow-y: auto;
+  }
+
+  .nav-menu .nav-link {
+    border-radius: 0;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-search {
+    order: 2;
+    width: auto;
+    flex: 1;
+  }
+
+  main#app {
+    padding: 28px 0 56px;
+  }
+
+  .hero {
+    padding: 32px 22px;
+    margin-bottom: 40px;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  section + section {
+    margin-top: 40px;
+  }
+
+  .grid-artists,
+  .grid-albums {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .grid-stats,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .song-row {
+    grid-template-columns: 32px 1fr auto;
+  }
+
+  .song-row-genre,
+  .song-row-date {
+    display: none;
+  }
+
+  .ranking-row {
+    grid-template-columns: 36px 44px 1fr auto;
+  }
+
+  .ranking-trend {
+    display: none;
+  }
+
+  .detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-hero .cover-art {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .detail-info {
+    text-align: center;
+  }
+
+  .detail-meta,
+  .detail-actions {
+    justify-content: center;
+  }
+
+  .chart-canvas-wrap {
+    height: 200px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-search {
+    width: 100%;
+  }
+
+  .quiz-card {
+    padding: 22px;
+  }
+
+  .quiz-question {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-artists,
+  .grid-albums {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .artist-card-body {
+    padding: 10px 12px 12px;
+  }
+
+  .cover-art .cover-initial {
+    font-size: 1.6rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+}

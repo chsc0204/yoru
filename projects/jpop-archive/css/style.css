@@ -1,0 +1,1122 @@
+/* ============================================================
+   J-POP ARCHIVE — Reset
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+button, input {
+  font-family: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================================
+   Design Tokens
+   ============================================================ */
+:root {
+  --color-primary: #FF4D8D;
+  --color-primary-dark: #E63D79;
+  --color-primary-soft: rgba(255, 77, 141, 0.14);
+
+  --color-bg: #0D0D12;
+  --color-surface: #17171F;
+  --color-surface-2: #1E1E2A;
+  --color-surface-3: #262633;
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  --color-text: #F5F5F5;
+  --color-text-secondary: #9A9AA5;
+  --color-text-faint: #6B6B78;
+
+  --color-success: #4ADE80;
+  --color-danger: #FF6B6B;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 8px 28px rgba(255, 77, 141, 0.22);
+
+  --header-height: 68px;
+  --transition: 0.22s ease;
+
+  --font-sans: 'Noto Sans KR', 'Malgun Gothic', 'Yu Gothic', 'Hiragino Sans',
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+main#app {
+  min-height: calc(100vh - var(--header-height));
+  padding: 40px 0 72px;
+}
+
+.page {
+  animation: fadeInUp 0.4s ease;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #12060B;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.82rem;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Header / Navigation
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 300;
+  background: rgba(13, 13, 18, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.logo .logo-accent {
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.nav-link {
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+  background: var(--color-surface-2);
+}
+
+.nav-link.active {
+  color: var(--color-bg);
+  background: var(--color-primary);
+}
+
+.nav-search {
+  margin-left: auto;
+  position: relative;
+  width: 280px;
+  flex-shrink: 1;
+}
+
+.nav-search input {
+  width: 100%;
+  padding: 10px 16px 10px 38px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: 0.86rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.nav-search input::placeholder {
+  color: var(--color-text-faint);
+}
+
+.nav-search input:focus {
+  border-color: var(--color-primary);
+}
+
+.nav-search-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: var(--color-text-faint);
+  pointer-events: none;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+/* Search results dropdown */
+.search-results {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 8px;
+  display: none;
+  z-index: 400;
+}
+
+.search-results.open {
+  display: block;
+}
+
+.search-group-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 10px 4px;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.search-result-item:hover {
+  background: var(--color-surface-3);
+}
+
+.cover-art.search-result-thumb {
+  width: 32px;
+  height: 32px;
+  aspect-ratio: unset;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cover-art.search-result-thumb .cover-initial {
+  font-size: 0.8rem;
+}
+
+.search-result-name {
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.search-result-sub {
+  font-size: 0.76rem;
+  color: var(--color-text-secondary);
+}
+
+.search-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   Section headings
+   ============================================================ */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-head h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.section-eyebrow {
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.section-sub {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.page-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.page-desc {
+  color: var(--color-text-secondary);
+  margin-bottom: 28px;
+}
+
+.disclaimer-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary-soft);
+  border: 1px solid rgba(255, 77, 141, 0.28);
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  margin: -8px 0 28px;
+}
+
+.disclaimer-note strong {
+  color: var(--color-primary);
+}
+
+section + section {
+  margin-top: 56px;
+}
+
+/* ============================================================
+   Hero (Dashboard)
+   ============================================================ */
+.hero {
+  background: radial-gradient(circle at 15% 20%, rgba(255, 77, 141, 0.16), transparent 55%), var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 56px 44px;
+  margin-bottom: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-kicker {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+
+.hero p.hero-sub {
+  color: var(--color-text-secondary);
+  font-size: 1.02rem;
+  max-width: 560px;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Grids
+   ============================================================ */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-artists {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-songs {
+  grid-template-columns: 1fr;
+}
+
+.grid-albums {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-stats {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ============================================================
+   Cover art placeholder (no external images — generated gradient tile)
+   ============================================================ */
+.cover-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 800;
+  user-select: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 -18px 30px rgba(0, 0, 0, 0.22);
+}
+
+/* 은은한 유광 하이라이트로 그라디언트 타일에 입체감을 더한다 */
+.cover-art::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 18% 12%, rgba(255, 255, 255, 0.28), transparent 55%),
+    radial-gradient(80% 60% at 85% 95%, rgba(0, 0, 0, 0.25), transparent 60%);
+  pointer-events: none;
+}
+
+.cover-art .cover-initial {
+  position: relative;
+  z-index: 1;
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.cover-art.cover-sm {
+  width: 44px;
+  height: 44px;
+  aspect-ratio: unset;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+}
+
+.cover-art.cover-sm .cover-initial {
+  font-size: 1rem;
+}
+
+/* ============================================================
+   Artist Card
+   ============================================================ */
+.artist-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-strong);
+}
+
+.artist-card .cover-art {
+  border-radius: 0;
+  transition: transform 0.5s ease;
+}
+
+.artist-card:hover .cover-art {
+  transform: scale(1.06);
+}
+
+.artist-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 13, 18, 0.7), rgba(13, 13, 18, 0));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 14px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.artist-card:hover .artist-card-overlay {
+  opacity: 1;
+}
+
+.artist-card-body {
+  padding: 14px 16px 16px;
+}
+
+.artist-card-name {
+  font-weight: 700;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+}
+
+.artist-card-genre {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.stars {
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+}
+
+.stars .star-empty {
+  color: var(--color-border-strong);
+}
+
+/* ============================================================
+   Badges
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.badge-genre {
+  background: var(--color-surface-3);
+  color: var(--color-text-secondary);
+}
+
+.badge-jlpt {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   Filter / Sort toolbar
+   ============================================================ */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.toolbar select,
+.toolbar input[type="text"] {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  padding: 9px 16px;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.toolbar select:focus,
+.toolbar input[type="text"]:focus {
+  border-color: var(--color-primary);
+}
+
+.toolbar-search {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.filter-chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #12060B;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-text-secondary);
+}
+
+.empty-state .empty-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+/* ============================================================
+   Song list rows
+   ============================================================ */
+.song-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.song-row + .song-row {
+  margin-top: 10px;
+}
+
+.song-row:hover {
+  background: var(--color-surface-2);
+  border-color: var(--color-border-strong);
+  transform: translateX(4px);
+}
+
+.song-row-index {
+  color: var(--color-text-faint);
+  font-weight: 700;
+  text-align: center;
+}
+
+.song-row-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.song-row-artist {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+.song-row-genre {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.song-row-date {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Favorite button
+   ============================================================ */
+.fav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--color-text-faint);
+  transition: transform var(--transition), color var(--transition);
+  line-height: 1;
+  padding: 4px;
+}
+
+.fav-btn:hover {
+  transform: scale(1.15);
+}
+
+.fav-btn.is-favorite {
+  color: var(--color-primary);
+  animation: favPop 0.35s ease;
+}
+
+/* ============================================================
+   Stat cards
+   ============================================================ */
+.stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Chart wrapper
+   ============================================================ */
+.chart-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.chart-card h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.chart-canvas-wrap {
+  position: relative;
+  height: 260px;
+}
+
+/* ============================================================
+   Detail pages (Artist Detail / Song Detail / Album Detail)
+   ============================================================ */
+.detail-hero {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.detail-hero .cover-art {
+  aspect-ratio: 1 / 1;
+}
+
+.detail-info .badge-genre {
+  margin-bottom: 12px;
+}
+
+.detail-info h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.detail-info .detail-japanese {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  margin-bottom: 18px;
+}
+
+.detail-meta strong {
+  color: var(--color-text);
+}
+
+.detail-description {
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Japanese Study cards
+   ============================================================ */
+.vocab-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.vocab-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+}
+
+.vocab-word {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.vocab-reading {
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  margin-bottom: 10px;
+}
+
+.vocab-meaning {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.vocab-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Quiz
+   ============================================================ */
+.quiz-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.quiz-progress {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.quiz-question {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 12px;
+}
+
+.quiz-option {
+  text-align: left;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.quiz-option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.quiz-option.correct {
+  border-color: var(--color-success);
+  background: rgba(74, 222, 128, 0.12);
+}
+
+.quiz-option.incorrect {
+  border-color: var(--color-danger);
+  background: rgba(255, 107, 107, 0.12);
+}
+
+.quiz-result {
+  margin-top: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.quiz-score {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.quiz-score .quiz-score-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   Rankings
+   ============================================================ */
+.ranking-row {
+  display: grid;
+  grid-template-columns: 48px 56px 1fr auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.ranking-row + .ranking-row {
+  margin-top: 10px;
+}
+
+.ranking-row:hover {
+  transform: translateX(4px);
+  border-color: var(--color-border-strong);
+}
+
+.ranking-rank {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-text-faint);
+  text-align: center;
+}
+
+.ranking-row:nth-child(1) .ranking-rank,
+.ranking-rank.top1 { color: var(--color-primary); }
+
+.ranking-name {
+  font-weight: 700;
+}
+
+.ranking-sub {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.ranking-score {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.ranking-trend {
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ranking-trend.up { color: var(--color-success); }
+.ranking-trend.down { color: var(--color-danger); }
+.ranking-trend.flat { color: var(--color-text-faint); }
+
+/* ============================================================
+   Recently viewed
+   ============================================================ */
+.recent-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.recent-chip {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px 6px 6px;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.recent-chip:hover {
+  border-color: var(--color-primary);
+}
+
+.recent-chip-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 28px 0;
+  text-align: center;
+  color: var(--color-text-faint);
+  font-size: 0.82rem;
+}
+
+/* ============================================================
+   Toast
+   ============================================================ */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+  padding: 13px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 900;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
