@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# database
+*.db
+*.sqlite
+*.sqlite3
+
+# next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# env files
+.env
+.env.local
+.env.*.local
+
+# logs
+*.log
+
+# misc
+.DS_Store
