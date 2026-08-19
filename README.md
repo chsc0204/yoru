@@ -45,8 +45,9 @@ Project/Note Modal, Playground 기능 등), `assets/`(아이콘·이미지).
 | J-POP Archive | `projects/jpop-archive/` | 아티스트/곡/앨범 정보와 랭킹, Chart.js 통계 시각화, 일본어 학습 퀴즈까지 포함한 SPA. 인기도·랭킹 수치는 실제 인기도를 참고해 구성한 학습용 예시 데이터 |
 | 미니 장바구니 | `projects/mini-cart/` | Next.js / FastAPI / SQLite로 만든 미니 쇼핑몰. 상품 목록 조회, 장바구니 담기·삭제·수량 변경, 총 금액 계산 기능 구현 |
 | 날씨/대기질 API 학습 | `projects/weather-air-api/` | Open-Meteo API로 날씨·대기질을 조회하는 손코딩 실습과, 이를 병렬 요청(ThreadPoolExecutor)·예외 처리로 통합한 완성형 프로그램 |
+| J-MUSE | `projects/j-muse/` | React 19 + Supabase로 만든 J-POP 음악 커뮤니티 웹앱. 회원가입/로그인, 추천·질문 게시글 CRUD, 답변·좋아요, 통합 검색, 아티스트/곡/앨범 상세, 하단 고정 뮤직 플레이어, 라이브러리·플레이리스트 기능 구현 |
 
-`phone-case-shop/`, `ai-tools-report/`, `football-champions/`, `jpop-archive/`, `mini-cart/` 폴더에는
+`phone-case-shop/`, `ai-tools-report/`, `football-champions/`, `jpop-archive/`, `mini-cart/`, `j-muse/` 폴더에는
 각각 더 자세한 내용을 담은 README.md가 별도로 있습니다.
 
 ---
@@ -79,10 +80,11 @@ power sell/
     ├── object-detector.html    — TensorFlow.js 물체 탐지 웹앱 (단일 파일로 구성)
     ├── football-champions/     — 축구 우승팀 아카이브 SPA (css/js/data 폴더 구조, fetch 사용으로 로컬 서버 필요)
     ├── ai-tools-report/        — AI 도구 리서치 리포트 (html · pdf · docx · md 원본 파일 포함)
-    └── jpop-archive/           — J-POP 아카이브 SPA (js/data, js/pages 폴더 구조, 해시 라우터)
+    ├── jpop-archive/           — J-POP 아카이브 SPA (js/data, js/pages 폴더 구조, 해시 라우터)
+    └── j-muse/                 — React 19 + Supabase J-POP 음악 커뮤니티 (src/components, pages, services, store, supabase/*.sql)
 ```
 
-`phone-case-shop/`, `football-champions/`, `ai-tools-report/`, `jpop-archive/`는 폴더 안에
+`phone-case-shop/`, `football-champions/`, `ai-tools-report/`, `jpop-archive/`, `j-muse/`는 폴더 안에
 각자의 README.md가 따로 있어 더 자세한 구성을 확인할 수 있습니다. `snake-game/`과
 `object-detector.html`은 파일 구성이 단순해 별도 README 없이 이 문서로 충분합니다.
 
