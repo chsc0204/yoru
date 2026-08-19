@@ -240,6 +240,17 @@ with ThreadPoolExecutor(max_workers=2) as pool:
 - `app.py`로 위 실습을 통합: 도시명 하나만 입력하면 Geocoding → 날씨/대기질을 병렬로 조회하고, 타임아웃/예외 처리 후 미세먼지·강수확률 기준으로 "외출 가능 여부"를 한 문장으로 판정
 - 완성한 실습을 GitHub 포트폴리오 저장소(`yoru`)의 `projects/weather-air-api/`에 정리해서 추가
 
+### app.py와 손코딩 비교분석
+
+| 항목 | first_call.py | show_json.py | weather.py | air.py | app.py |
+|---|---|---|---|---|---|
+| 목적 | API 연결 확인 | 응답 구조 탐색 | 도시 검색+날씨 | 도시 검색+대기질 | 통합 종합 판정 |
+| 위치 지정 | 서울 고정 | 서울 고정 | 도시명 입력 | 도시명 입력 | 도시명 입력 |
+| 호출 API | 1개 | 1개 | 2개 | 2개 | 3개 |
+| 요청 방식 | 단일 | 단일 | 순차 | 순차 | 병렬(ThreadPoolExecutor) |
+| 에러 처리 | 없음 | 없음 | 없음 | 없음 | 있음(timeout 시 정보없음 처리) |
+| 결과 형태 | 상태코드/텍스트 | JSON 원본 | 개별 수치 | 등급 판정 | 종합 결론 문장 |
+
 ---
 
 ## 8. Supabase 연동 (J-MUSE 프로젝트)
