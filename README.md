@@ -44,6 +44,7 @@ Project/Note Modal, Playground 기능 등), `assets/`(아이콘·이미지).
 | AI 도구 2025 하반기 인기 보고서 | `projects/ai-tools-report/` | 2025년 하반기 인기 AI 도구를 여러 지표로 조사한 리서치 리포트. PDF/Word/Markdown 원본 다운로드 제공 |
 | J-POP Archive | `projects/jpop-archive/` | 아티스트/곡/앨범 정보와 랭킹, Chart.js 통계 시각화, 일본어 학습 퀴즈까지 포함한 SPA. 인기도·랭킹 수치는 실제 인기도를 참고해 구성한 학습용 예시 데이터 |
 | 미니 장바구니 | `projects/mini-cart/` | Next.js / FastAPI / SQLite로 만든 미니 쇼핑몰. 상품 목록 조회, 장바구니 담기·삭제·수량 변경, 총 금액 계산 기능 구현 |
+| 날씨/대기질 API 학습 | `projects/weather-air-api/` | Open-Meteo API로 날씨·대기질을 조회하는 손코딩 실습과, 이를 병렬 요청(ThreadPoolExecutor)·예외 처리로 통합한 완성형 프로그램 |
 
 `phone-case-shop/`, `ai-tools-report/`, `football-champions/`, `jpop-archive/`, `mini-cart/` 폴더에는
 각각 더 자세한 내용을 담은 README.md가 별도로 있습니다.
