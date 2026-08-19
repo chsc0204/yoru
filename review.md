@@ -211,5 +211,69 @@ const handleAddToCart = async (productId: number) => {
 
 ---
 
+## 7. 외부 API 연동 실습 (날씨/대기질)
+
+### 핵심 개념
+- Open-Meteo API(무료, 인증키 불필요)로 날씨/대기질 조회
+- Geocoding API로 도시명 → 위경도 변환 — 도시명만 알면 위경도를 몰라도 날씨/대기질을 조회할 수 있다
+- 여러 API를 순차로 호출하면 한쪽이 느려도 전체가 그만큼 느려지므로, `ThreadPoolExecutor`로 동시에 호출하고 각각 타임아웃/예외를 개별 처리하면 한쪽이 실패하거나 늦어도 나머지 결과로 판단할 수 있다
+
+### 실제 사용한 코드 예시
+```python
+def find_city(name):
+    """도시 이름 -> (위도, 경도, 표시용 이름)"""
+    r = requests.get(GEO, params={"name": name, "count": 1}, timeout=TIMEOUT)
+    hit = r.json()["results"][0]
+    return hit["latitude"], hit["longitude"], hit["name"] + ", " + hit["country_code"]
+
+with ThreadPoolExecutor(max_workers=2) as pool:
+    weather_future = pool.submit(get_weather, lat, lon)
+    air_future = pool.submit(get_air, lat, lon)
+    try:
+        weather = weather_future.result(timeout=WAIT_LIMIT)
+    except FutureTimeoutError:
+        weather = None  # 타임아웃이 나도 프로그램 전체가 멈추지 않도록 처리
+```
+
+### 오늘 실습에서 한 일
+- `first_call.py`(연결 확인) → `show_json.py`(구조 탐색) → `weather.py`(날씨 조회) → `air.py`(대기질 조회) 순으로 단계별로 실습하며 API 응답 구조를 익힘
+- `app.py`로 위 실습을 통합: 도시명 하나만 입력하면 Geocoding → 날씨/대기질을 병렬로 조회하고, 타임아웃/예외 처리 후 미세먼지·강수확률 기준으로 "외출 가능 여부"를 한 문장으로 판정
+- 완성한 실습을 GitHub 포트폴리오 저장소(`yoru`)의 `projects/weather-air-api/`에 정리해서 추가
+
+---
+
+## 8. Supabase 연동 (J-MUSE 프로젝트)
+
+### 핵심 개념
+- Supabase = PostgreSQL DB + Auth + API를 한 번에 제공하는 BaaS(Backend as a Service). 백엔드 서버를 직접 만들지 않고도 회원가입/로그인, DB CRUD를 바로 사용할 수 있다
+- 여러 테이블이 서로 참조하는 관계형 스키마 설계: `profiles`/`artists`/`albums`/`songs`처럼 콘텐츠를 나누고, `posts`/`answers`/`likes`로 커뮤니티 기능을, `playlists`/`playlist_songs`로 다대다 관계(플레이리스트-곡)를 표현
+- RLS(Row Level Security): 테이블 단위로 "누가 어떤 행을 읽고/쓸 수 있는지" 정책(policy)을 SQL로 정의한다. 정책이 없으면 기본적으로 접근이 막히므로, 로그인한 사용자만 자기 글을 쓸 수 있게 하는 등의 규칙을 직접 작성해야 한다
+- SQL Editor에서 `schema.sql`(테이블 생성) → `policies.sql`(RLS 정책) → `seed.sql`(초기 데이터) 순서로 실행하는 것이 중요하다 — 정책은 테이블이 있어야 걸 수 있고, 초기 데이터는 정책이 허용해야 들어간다
+
+### 실제 사용한 코드 예시
+```sql
+-- policies.sql: 로그인한 사용자만 자기 글을 쓸 수 있도록 제한
+alter table posts enable row level security;
+
+create policy "누구나 글 조회 가능"
+  on posts for select
+  using (true);
+
+create policy "로그인한 사용자만 자기 글 작성 가능"
+  on posts for insert
+  with check (auth.uid() = author_id);
+```
+```tsx
+// Supabase Auth로 회원가입
+const { error } = await supabase.auth.signUp({ email, password });
+```
+
+### 오늘 실습에서 한 일
+- Vite + React + Tailwind + Supabase로 J-POP 커뮤니티 웹앱(J-MUSE) 제작
+- `profiles`, `artists`, `albums`, `songs`, `posts`, `answers`, `likes`, `playlists`, `playlist_songs` 9개 테이블 설계 및 `schema.sql` → `policies.sql` → `seed.sql` 순서로 실행해 테이블 생성과 RLS 정책 적용
+- 회원가입/로그인, 게시글 작성·조회 기능을 실제로 붙여보고, Table Editor와 SQL Editor에서 데이터가 실제로 반영되는지 직접 확인
+
+---
+
 ## 오늘의 한 줄 정리
-> 파일은 규칙(확장자)으로 자동 정리하고, 코드는 Git으로 버전을 기록하며, 게임은 "입력 → 상태 업데이트 → 그리기"의 반복 루프로 만들어진다. 그리고 FastAPI+SQLite로 실제 동작하는 백엔드를 만들고 Next.js 프론트와 REST API로 연결해, 완성된 풀스택 미니 프로젝트를 GitHub에 올려보는 것까지 경험했다.
+> 파일은 규칙(확장자)으로 자동 정리하고, 코드는 Git으로 버전을 기록하며, 게임은 "입력 → 상태 업데이트 → 그리기"의 반복 루프로 만들어진다. 그리고 FastAPI+SQLite로 실제 동작하는 백엔드를 만들고 Next.js 프론트와 REST API로 연결해, 완성된 풀스택 미니 프로젝트를 GitHub에 올려보는 것까지 경험했다. 외부 API(Open-Meteo)를 병렬로 호출하는 법과, Supabase 같은 BaaS로 실제 회원가입/게시글 작성이 동작하는 커뮤니티 서비스를 만드는 것까지 하루에 경험했다.
