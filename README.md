@@ -82,12 +82,14 @@ power sell/
     ├── football-champions/     — 축구 우승팀 아카이브 SPA (css/js/data 폴더 구조, fetch 사용으로 로컬 서버 필요)
     ├── ai-tools-report/        — AI 도구 리서치 리포트 (html · pdf · docx · md 원본 파일 포함)
     ├── jpop-archive/           — J-POP 아카이브 SPA (js/data, js/pages 폴더 구조, 해시 라우터)
-    └── j-muse/                 — React 19 + Supabase J-POP 음악 커뮤니티 (src/components, pages, services, store, supabase/*.sql)
+    ├── j-muse/                 — React 19 + Supabase J-POP 음악 커뮤니티 (src/components, pages, services, store, supabase/*.sql)
+    └── arduino-sensor-buzzer/  — Arduino 기초 실습. LED 제어·초음파 센서·부저 연동
 ```
 
-`phone-case-shop/`, `football-champions/`, `ai-tools-report/`, `jpop-archive/`, `j-muse/`는 폴더 안에
-각자의 README.md가 따로 있어 더 자세한 구성을 확인할 수 있습니다. `snake-game/`과
-`object-detector.html`은 파일 구성이 단순해 별도 README 없이 이 문서로 충분합니다.
+`phone-case-shop/`, `football-champions/`, `ai-tools-report/`, `jpop-archive/`, `j-muse/`,
+`arduino-sensor-buzzer/`는 폴더 안에 각자의 README.md가 따로 있어 더 자세한 구성을
+확인할 수 있습니다. `snake-game/`과 `object-detector.html`은 파일 구성이 단순해
+별도 README 없이 이 문서로 충분합니다.
 
 ### 왜 이렇게 구조를 나눴나
 
