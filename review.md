@@ -286,5 +286,40 @@ const { error } = await supabase.auth.signUp({ email, password });
 
 ---
 
+## 9. Arduino 기초 실습 (LED / PIR 센서 / 패시브 부저)
+
+### 핵심 개념
+- `pinMode(pin, OUTPUT/INPUT)`으로 핀의 입출력 방향을 정한 뒤 `digitalWrite`/`digitalRead`로 값을 주고받는 것이 Arduino 프로그래밍의 기본 패턴이다.
+- `tone(pin, frequency)`/`noTone(pin)`으로 피에조 부저에서 원하는 음(주파수)을 재생하거나 끌 수 있다.
+- PIR 같은 디지털 센서는 감지되면 HIGH, 아니면 LOW를 돌려주는 단순한 스위치처럼 동작해서 `if(val==HIGH)` 분기로 손쉽게 반응시킬 수 있다.
+- Tinkercad Circuits 시뮬레이터로 실제 부품 없이도 회로 연결과 코드 동작을 바로 테스트할 수 있다.
+
+### 실제 사용한 코드 예시
+```cpp
+int ledPin=8;
+int inputPin=7;
+int val=0;
+
+void loop()
+{
+  val=digitalRead(inputPin);
+  if(val==HIGH){
+    digitalWrite(ledPin,HIGH);
+    Serial.println("Welcome!");
+  }
+  else{
+    digitalWrite(ledPin,LOW);
+    Serial.println("Nothing");
+  }
+  delay(1000);
+}
+```
+
+### 오늘 실습에서 한 일
+- `LED_BUILTIN`을 1초 간격으로 켜고 끄는 기본 블링크, PIR 센서가 감지되면 LED를 켜고 시리얼 모니터에 "Welcome!"을 출력하는 실습, 패시브 부저로 C5→D5→E5 음을 순서대로 재생하는 실습까지 3개의 독립적인 기초 스케치 작성
+- 완성한 실습을 GitHub 포트폴리오 저장소(`yoru`)의 `projects/arduino-basics/`에 정리해서 추가하고 README까지 작성
+
+---
+
 ## 오늘의 한 줄 정리
 > 파일은 규칙(확장자)으로 자동 정리하고, 코드는 Git으로 버전을 기록하며, 게임은 "입력 → 상태 업데이트 → 그리기"의 반복 루프로 만들어진다. 그리고 FastAPI+SQLite로 실제 동작하는 백엔드를 만들고 Next.js 프론트와 REST API로 연결해, 완성된 풀스택 미니 프로젝트를 GitHub에 올려보는 것까지 경험했다. 외부 API(Open-Meteo)를 병렬로 호출하는 법과, Supabase 같은 BaaS로 실제 회원가입/게시글 작성이 동작하는 커뮤니티 서비스를 만드는 것까지 하루에 경험했다.
