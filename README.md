@@ -47,9 +47,10 @@ Project/Note Modal, Playground 기능 등), `assets/`(아이콘·이미지).
 | 날씨/대기질 API 학습 | `projects/weather-air-api/` | Open-Meteo API로 날씨·대기질을 조회하는 손코딩 실습과, 이를 병렬 요청(ThreadPoolExecutor)·예외 처리로 통합한 완성형 프로그램 |
 | J-MUSE | `projects/j-muse/` | React 19 + Supabase로 만든 J-POP 음악 커뮤니티 웹앱. 회원가입/로그인, 추천·질문 게시글 CRUD, 답변·좋아요, 통합 검색, 아티스트/곡/앨범 상세, 하단 고정 뮤직 플레이어, 라이브러리·플레이리스트 기능 구현 |
 | 초음파 센서 + 부저 연동 | `projects/arduino-sensor-buzzer/` | HC-SR04 초음파 센서로 거리를 측정해 30cm 이내로 가까워지면 피에조 부저로 경보음을 울리는 Tinkercad 회로 실습 |
+| 아이지킴이 (AI-Zikimi) | `projects/ai-zikimi/` | ESP32-S3 Sense 카메라 → Raspberry Pi → FastAPI → Gemini API → Supabase → Next.js 대시보드로 이어지는 AI 순찰 로봇 시스템. 2인 팀 프로젝트 (진행 중, 하드웨어 통합 대기) |
 
 `phone-case-shop/`, `ai-tools-report/`, `football-champions/`, `jpop-archive/`, `mini-cart/`, `j-muse/`,
-`arduino-sensor-buzzer/` 폴더에는 각각 더 자세한 내용을 담은 README.md가 별도로 있습니다.
+`arduino-sensor-buzzer/`, `ai-zikimi/` 폴더에는 각각 더 자세한 내용을 담은 README.md가 별도로 있습니다.
 
 ---
 
@@ -83,11 +84,12 @@ power sell/
     ├── ai-tools-report/        — AI 도구 리서치 리포트 (html · pdf · docx · md 원본 파일 포함)
     ├── jpop-archive/           — J-POP 아카이브 SPA (js/data, js/pages 폴더 구조, 해시 라우터)
     ├── j-muse/                 — React 19 + Supabase J-POP 음악 커뮤니티 (src/components, pages, services, store, supabase/*.sql)
-    └── arduino-sensor-buzzer/  — Arduino 기초 실습. LED 제어·초음파 센서·부저 연동
+    ├── arduino-sensor-buzzer/  — Arduino 기초 실습. LED 제어·초음파 센서·부저 연동
+    └── ai-zikimi/              — AI 순찰 로봇 시스템. 기획서·API 명세·DB 스키마(supabase/migrations/*.sql) (전체 소스는 별도 작업 저장소에서 관리 중)
 ```
 
 `phone-case-shop/`, `football-champions/`, `ai-tools-report/`, `jpop-archive/`, `j-muse/`,
-`arduino-sensor-buzzer/`는 폴더 안에 각자의 README.md가 따로 있어 더 자세한 구성을
+`arduino-sensor-buzzer/`, `ai-zikimi/`는 폴더 안에 각자의 README.md가 따로 있어 더 자세한 구성을
 확인할 수 있습니다. `snake-game/`과 `object-detector.html`은 파일 구성이 단순해
 별도 README 없이 이 문서로 충분합니다.
 

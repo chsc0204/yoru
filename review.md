@@ -321,5 +321,69 @@ void loop()
 
 ---
 
+## 10. 아이지킴이(AI-Zikimi) — AI 순찰 로봇 시스템 (종합 프로젝트)
+
+### 프로젝트 개요
+원룸을 지그재그로 순찰하며 사람이 없는 시간대의 안전을 지켜주는 AI 로봇 시스템. `ESP32-S3 Sense(카메라) → Raspberry Pi(이동/센서/통신) → FastAPI 서버 → Gemini API(이미지 분석) → Supabase(DB/Storage/Realtime) → Next.js 웹 대시보드`로 이어지는 풀스택 파이프라인을 2인 팀(A: 웹/AI/데이터, B: 하드웨어)으로 진행 중인 프로젝트다.
+
+### 핵심 개념
+- **구조화 출력(Structured Output)**: Gemini에 `response_mime_type: application/json` + Pydantic 스키마(`response_schema`)를 함께 넘기면, 자유 텍스트가 아니라 정해진 JSON 필드(문열림/바닥위험/사람·동물/화재위험/요약/위험도)로만 답이 오도록 강제할 수 있다.
+- **이벤트 버스트 촬영 설계**: 평소엔 60초 간격으로 한 장씩만 찍다가, 위험(주의/위험)이 감지되면 `event_id`를 새로 발급해 같은 이벤트로 묶고 8~10초 간격 후속 촬영 3장을 추가로 찍게 해서 순간의 오판단을 줄인다. 다만 매 장마다 Gemini를 다시 부르면 비용/쿼터가 크게 늘어나므로, 후속 촬영 중 1번째(seq=1)까지만 재분석하고 2·3번째는 저장만 하도록 설계했다.
+- **Supabase Realtime**: 테이블 INSERT/UPDATE를 웹소켓으로 구독해서, 새로고침 없이도 로봇 상태·새 위험 알림이 대시보드에 바로 반영되게 할 수 있다.
+- **FK `on delete cascade`**: `ai_analysis.camera_log_id`에 cascade를 걸어두면, 촬영 로그(`camera_logs`)를 지울 때 딸린 분석 결과가 자동으로 같이 삭제돼서 테스트 데이터 정리가 훨씬 간단해진다.
+- **무료 API 쿼터는 눈으로 확인하기 전엔 모른다**: 모델 문서에 정적 쿼터 표가 사라진 경우, 실제로 최소 호출을 날려보고 429 에러 응답에 찍히는 `quotaValue` 필드로 진짜 한도를 확인해야 한다 — 추측하지 않고 API 응답/AI Studio 대시보드로만 확정.
+- **Cloudflare Tunnel(quick tunnel)**: 계정 없이 `cloudflared tunnel --url http://localhost:PORT` 한 줄이면 로컬 서버가 임시 `trycloudflare.com` 주소로 외부에 노출된다. 단, 프런트/백엔드를 각각 따로 터널링하면 프런트가 여전히 `localhost` API 주소를 바라보지 않도록 환경변수(API Base URL)와 CORS 허용 origin을 터널 주소로 맞춰줘야 하고, Next.js dev 서버는 `allowedDevOrigins`에 터널 도메인을 추가해야 외부에서 정적 리소스가 차단되지 않는다.
+
+### 실제 사용한 코드 예시
+```python
+# Gemini에게 구조화 JSON 출력을 강제하는 방식
+response = client.models.generate_content(
+    model=settings.gemini_model,
+    contents=[
+        types.Part.from_bytes(data=image_bytes, mime_type=mime_type),
+        build_risk_checklist_prompt(sensitivity),
+    ],
+    config=types.GenerateContentConfig(
+        response_mime_type="application/json",
+        response_schema=AnalysisResult,  # Pydantic 모델 그대로 스키마로 사용
+    ),
+)
+result = response.parsed  # 이미 AnalysisResult 인스턴스로 파싱되어 있음
+```
+```sql
+-- ai_analysis.camera_log_id에 cascade를 걸어, camera_logs 삭제 시 분석 결과가 자동 정리되게 함
+alter table ai_analysis
+  add column camera_log_id uuid not null references camera_logs(id) on delete cascade;
+```
+
+### 개발 과정 (STEP 1~7)
+- **STEP 1** 웹 대시보드 뼈대 (Next.js App Router, 레이아웃/네비게이션)
+- **STEP 2** Supabase 스키마 설계 (checkpoints/robot_status/camera_logs/ai_analysis 등 관계형 구조)
+- **STEP 3** Storage 이미지 업로드 연동
+- **STEP 4** Gemini 이미지 분석 연동 — 체크리스트 4항목(문열림/바닥위험/사람·동물/화재위험) + 구조화 출력
+- **STEP 5** FastAPI 이미지 수신 API (`POST /api/v1/images`) 구현
+- **STEP 6** 전체 파이프라인 연결 (촬영 → Storage 업로드 → Gemini 분석 → DB 저장 → 대시보드 표시)
+- **STEP 6.5** 이벤트 버스트 촬영 — 위험 감지 시 전/후로 추가 촬영 3장을 이어붙여 기록
+- **STEP 7** Supabase Realtime 구독으로 대시보드 자동 갱신
+- **여유 작업**: 체크포인트 좌표 기반 순찰 경로 시각화(지도), 설정 화면(민감도/알림)을 localStorage가 아니라 Supabase DB와 직접 연동
+
+### 팀 협업
+- 원래 3인 체제로 시작하려 했으나, 하드웨어(ESP32-S3 Sense/Raspberry Pi) 배송이 늦어지면서 인원 구성을 다시 논의해 **2인(A/B) 체제**로 확정
+- B의 하드웨어 작업을 **이동 제어 / 센서 / 카메라 / 통신** 4단계로 세분화해서, 부품이 도착하는 대로 단계별로 바로 착수할 수 있게 계획을 미리 정리해둠
+
+### 발견하고 해결한 버그
+- **`event_id` 형식 미검증 → 500 에러**: 잘못된 형식의 `event_id`가 들어오면 서버 내부 오류(500)로 죽던 것을, uuid 형식을 미리 검증해 `400 Bad Request` + 명확한 에러 메시지로 개선
+- **`stranger_or_animal_detected` 필드명 오매핑**: Gemini는 "사람 또는 동물"을 구분하지 않고 하나의 값으로 판단하는데, DB/API 필드명이 `person_detected`였던 탓에 동물만 있는 사진에서도 "사람 감지"로 오인되는 문제 발견 → DB 컬럼 · API 응답 스키마 · 웹 화면까지 필드명을 일관되게 `stranger_or_animal_detected`로 변경
+- **"낯선지 익숙한지" 판단이 들쭉날쭉한 프롬프트**: 아이가 노는 사진은 `false`, 성인이 일하는 사진은 `true`로 나오는 등 판단 기준이 불명확했던 것을, "이 공간은 원래 무인 상태여야 하므로 낯선지 여부와 무관하게 사람·동물이 있으면 무조건 감지로 판단"하도록 프롬프트를 구체화해서 해결
+- **Gemini 무료 티어 쿼터 소진**: 초반에 쓰던 모델의 무료 티어가 하루 20건 요청 제한이라는 걸 실제 429 에러로 발견 → List Models API와 실제 호출로 대체 모델들을 하나씩 검증한 뒤, 구조화 출력이 되면서 무료 티어가 더 넉넉한 `gemini-3.5-flash-lite`(RPM 15 / RPD 500, AI Studio에서 직접 확인)로 전환
+
+### 오늘 실습에서 한 일
+- Gemini 체크리스트 4항목(문 열림/바닥 이상/사람·동물/화재 위험)을 실제 이미지로 하나씩 테스트하며 판정 정확도 확인
+- Cloudflare Tunnel로 로컬 FastAPI/Next.js 서버를 임시 공개 URL로 노출해서, 하드웨어 담당(B)이 원격에서 실제 엔드포인트를 호출해보는 통합 테스트 진행
+- 테스트 중 쌓인 `camera_logs`/`ai_analysis`/Storage 임시 데이터를 삭제 전 건수 미리보기 → 확인 → 실제 삭제 → 재조회 검증까지 안전하게 정리
+- 완성된 진행 상황을 GitHub 포트폴리오 저장소(`yoru`)의 `projects/ai-zikimi/`에 기획서·API 명세·DB 스키마로 정리해서 추가
+
+---
+
 ## 오늘의 한 줄 정리
-> 파일은 규칙(확장자)으로 자동 정리하고, 코드는 Git으로 버전을 기록하며, 게임은 "입력 → 상태 업데이트 → 그리기"의 반복 루프로 만들어진다. 그리고 FastAPI+SQLite로 실제 동작하는 백엔드를 만들고 Next.js 프론트와 REST API로 연결해, 완성된 풀스택 미니 프로젝트를 GitHub에 올려보는 것까지 경험했다. 외부 API(Open-Meteo)를 병렬로 호출하는 법과, Supabase 같은 BaaS로 실제 회원가입/게시글 작성이 동작하는 커뮤니티 서비스를 만드는 것까지 하루에 경험했다.
+> 파일은 규칙(확장자)으로 자동 정리하고, 코드는 Git으로 버전을 기록하며, 게임은 "입력 → 상태 업데이트 → 그리기"의 반복 루프로 만들어진다. 그리고 FastAPI+SQLite로 실제 동작하는 백엔드를 만들고 Next.js 프론트와 REST API로 연결해, 완성된 풀스택 미니 프로젝트를 GitHub에 올려보는 것까지 경험했다. 외부 API(Open-Meteo)를 병렬로 호출하는 법과, Supabase 같은 BaaS로 실제 회원가입/게시글 작성이 동작하는 커뮤니티 서비스를 만드는 것까지 하루에 경험했다. 그리고 하드웨어(로봇)-서버-AI-DB-웹 대시보드를 전부 잇는 실제 팀 프로젝트(아이지킴이)에서, Gemini 구조화 출력·Supabase Realtime·이벤트 버스트 설계 같은 아키텍처 결정과, 필드명 오매핑·프롬프트 모호성·API 쿼터 소진처럼 실제로 부딪혀야만 보이는 버그들을 직접 찾아 고쳐보는 경험까지 이어갔다.
