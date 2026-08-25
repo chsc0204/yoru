@@ -70,7 +70,7 @@ FastAPI 서버 ── Gemini API (이미지 분석, 구조화 JSON 출력)
 ```
 ai-zikimi/
 ├── README.md                              — 이 문서
-├── 아이지킴이_기획서_v3.pdf                 — 초기 기획서
+├── 아이지킴이_기획서_v4.pdf                 — 기획서 (최신 버전)
 ├── docs/
 │   └── api-contract.md                    — 하드웨어(B) ↔ 서버 이미지 수신 API 명세
 └── supabase/
