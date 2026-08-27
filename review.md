@@ -1,6 +1,6 @@
 # 오늘 배운 내용 복습
 
-## 1. 파일/폴더 정리 및 확장자별 분류
+## 1. (2026-08-13) 파일/폴더 정리 및 확장자별 분류
 
 ### 핵심 개념
 - 컴퓨터의 모든 파일은 **확장자**(파일명 뒤의 `.png`, `.pdf`, `.zip` 같은 부분)로 종류를 구분할 수 있다.
@@ -34,13 +34,13 @@ for f in target_dir.iterdir():
         shutil.move(str(f), str(dest_dir / f.name))
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - `분류용` 폴더의 파일들을 `images / documents / data / installers / archives` 폴더로 자동 분류
 - 나중에 새 파일이 들어와도 스크립트를 다시 실행하면 같은 기준으로 정리됨
 
 ---
 
-## 2. Git/GitHub 사용법 (init, add, commit, push)
+## 2. (2026-08-13) Git/GitHub 사용법 (init, add, commit, push)
 
 ### 핵심 개념
 | 명령어 | 의미 |
@@ -67,13 +67,13 @@ git branch -M main
 git push -u origin main
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - `power sell` 폴더를 Git 저장소로 초기화
 - `snake_game.py`를 커밋해서 GitHub 저장소(`yoru`)에 처음으로 푸시
 
 ---
 
-## 3. pygame으로 snake_game.py 만들기 실습
+## 3. (2026-08-13) pygame으로 snake_game.py 만들기 실습
 
 ### 핵심 개념
 - **게임 루프**: `while True:` 안에서 (1) 키보드 입력 처리 → (2) 게임 상태 업데이트 → (3) 화면 그리기를 반복하는 구조가 대부분의 2D 게임의 기본 뼈대다.
@@ -100,13 +100,13 @@ if now - last_move_time >= 1000 / moves_per_sec:
         return score  # 자기 몸 충돌 -> 게임 오버
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - `snake_game.py` 완성: 방향키/WASD 조작, 먹이를 먹을수록 점수 상승 및 속도 증가, 게임 오버 후 R키로 재시작
 - 처음 만들었을 때 "반응이 느리다"는 문제를 발견하고, 이동 로직과 입력 폴링을 분리해서 해결
 
 ---
 
-## 4. FastAPI (백엔드 서버)
+## 4. (2026-08-18) FastAPI (백엔드 서버)
 
 ### 핵심 개념
 - GET 라우트로 가장 단순한 서버 만들기
@@ -133,13 +133,13 @@ def add_to_cart(payload: CartCreateRequest):
     ...  # payload.product_id 는 이미 int로 검증된 값
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - FastAPI로 `GET /products`, `GET /cart`, `POST /cart`, `PATCH /cart/{id}`, `DELETE /cart/{id}`, `DELETE /cart` 총 6개 라우트 구현
 - `http://127.0.0.1:8001/docs`에서 Swagger UI로 각 API를 직접 호출해보며 정상 동작(수량 증가, 404/400 에러 등) 확인
 
 ---
 
-## 5. SQLite (데이터베이스)
+## 5. (2026-08-18) SQLite (데이터베이스)
 
 ### 핵심 개념
 - `sqlite3` 모듈만으로 별도 DB 서버 설치 없이 파일 하나(`.db`)로 바로 데이터베이스를 사용할 수 있다
@@ -168,13 +168,13 @@ conn.execute(
 conn.commit()
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - `products`, `cart` 두 테이블을 SQLite에 생성하고, 서버 시작 시 상품 4종(노트북/키보드/마우스/헤드셋)을 자동으로 채워두는 초기화 로직 작성
 - 장바구니 담기·수량 변경·삭제 API가 실제로 `shop.db` 파일에 반영되는지 직접 쿼리로 조회해서 확인
 
 ---
 
-## 6. 미니 장바구니 프로젝트 (종합 실습)
+## 6. (2026-08-18) 미니 장바구니 프로젝트 (종합 실습)
 
 ### 핵심 개념
 - Next.js(프론트) + FastAPI(백엔드) + SQLite(DB)로 이어지는 풀스택 구조를 처음부터 끝까지 직접 구성
@@ -204,14 +204,14 @@ const handleAddToCart = async (productId: number) => {
 };
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - 상품 목록 조회, 장바구니 담기/삭제, 수량 변경(+/−), 중복 상품 자동 수량 증가, 장바구니 비우기, 총 금액 자동 계산까지 기능 완성
 - 애플 스타일(넓은 여백, 은은한 그림자, 포인트 컬러 하나, hover 애니메이션)로 프론트엔드 디자인 다듬기
 - 완성한 프로젝트를 기존 GitHub 포트폴리오 저장소(`yoru`)의 `projects/mini-cart/`에 정리해서 추가하고 README까지 작성
 
 ---
 
-## 7. 외부 API 연동 실습 (날씨/대기질)
+## 7. (2026-08-19) 외부 API 연동 실습 (날씨/대기질)
 
 ### 핵심 개념
 - Open-Meteo API(무료, 인증키 불필요)로 날씨/대기질 조회
@@ -235,7 +235,7 @@ with ThreadPoolExecutor(max_workers=2) as pool:
         weather = None  # 타임아웃이 나도 프로그램 전체가 멈추지 않도록 처리
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - `first_call.py`(연결 확인) → `show_json.py`(구조 탐색) → `weather.py`(날씨 조회) → `air.py`(대기질 조회) 순으로 단계별로 실습하며 API 응답 구조를 익힘
 - `app.py`로 위 실습을 통합: 도시명 하나만 입력하면 Geocoding → 날씨/대기질을 병렬로 조회하고, 타임아웃/예외 처리 후 미세먼지·강수확률 기준으로 "외출 가능 여부"를 한 문장으로 판정
 - 완성한 실습을 GitHub 포트폴리오 저장소(`yoru`)의 `projects/weather-air-api/`에 정리해서 추가
@@ -253,7 +253,7 @@ with ThreadPoolExecutor(max_workers=2) as pool:
 
 ---
 
-## 8. Supabase 연동 (J-MUSE 프로젝트)
+## 8. (2026-08-19) Supabase 연동 (J-MUSE 프로젝트)
 
 ### 핵심 개념
 - Supabase = PostgreSQL DB + Auth + API를 한 번에 제공하는 BaaS(Backend as a Service). 백엔드 서버를 직접 만들지 않고도 회원가입/로그인, DB CRUD를 바로 사용할 수 있다
@@ -279,14 +279,14 @@ create policy "로그인한 사용자만 자기 글 작성 가능"
 const { error } = await supabase.auth.signUp({ email, password });
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - Vite + React + Tailwind + Supabase로 J-POP 커뮤니티 웹앱(J-MUSE) 제작
 - `profiles`, `artists`, `albums`, `songs`, `posts`, `answers`, `likes`, `playlists`, `playlist_songs` 9개 테이블 설계 및 `schema.sql` → `policies.sql` → `seed.sql` 순서로 실행해 테이블 생성과 RLS 정책 적용
 - 회원가입/로그인, 게시글 작성·조회 기능을 실제로 붙여보고, Table Editor와 SQL Editor에서 데이터가 실제로 반영되는지 직접 확인
 
 ---
 
-## 9. Arduino 기초 실습 (LED / PIR 센서 / 패시브 부저)
+## 9. (2026-08-20) Arduino 기초 실습 (LED / PIR 센서 / 패시브 부저)
 
 ### 핵심 개념
 - `pinMode(pin, OUTPUT/INPUT)`으로 핀의 입출력 방향을 정한 뒤 `digitalWrite`/`digitalRead`로 값을 주고받는 것이 Arduino 프로그래밍의 기본 패턴이다.
@@ -315,13 +315,13 @@ void loop()
 }
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - `LED_BUILTIN`을 1초 간격으로 켜고 끄는 기본 블링크, PIR 센서가 감지되면 LED를 켜고 시리얼 모니터에 "Welcome!"을 출력하는 실습, 패시브 부저로 C5→D5→E5 음을 순서대로 재생하는 실습까지 3개의 독립적인 기초 스케치 작성
 - 완성한 실습을 GitHub 포트폴리오 저장소(`yoru`)의 `projects/arduino-basics/`에 정리해서 추가하고 README까지 작성
 
 ---
 
-## 10. 아이지킴이(AI-Zikimi) — AI 순찰 로봇 시스템 (종합 프로젝트)
+## 10. (2026-08-25) 아이지킴이(AI-Zikimi) — AI 순찰 로봇 시스템 (종합 프로젝트)
 
 ### 프로젝트 개요
 원룸을 지그재그로 순찰하며 사람이 없는 시간대의 안전을 지켜주는 AI 로봇 시스템. `ESP32-S3 Sense(카메라) → Raspberry Pi(이동/센서/통신) → FastAPI 서버 → Gemini API(이미지 분석) → Supabase(DB/Storage/Realtime) → Next.js 웹 대시보드`로 이어지는 풀스택 파이프라인을 2인 팀(A: 웹/AI/데이터, B: 하드웨어)으로 진행 중인 프로젝트다.
@@ -377,7 +377,7 @@ alter table ai_analysis
 - **"낯선지 익숙한지" 판단이 들쭉날쭉한 프롬프트**: 아이가 노는 사진은 `false`, 성인이 일하는 사진은 `true`로 나오는 등 판단 기준이 불명확했던 것을, "이 공간은 원래 무인 상태여야 하므로 낯선지 여부와 무관하게 사람·동물이 있으면 무조건 감지로 판단"하도록 프롬프트를 구체화해서 해결
 - **Gemini 무료 티어 쿼터 소진**: 초반에 쓰던 모델의 무료 티어가 하루 20건 요청 제한이라는 걸 실제 429 에러로 발견 → List Models API와 실제 호출로 대체 모델들을 하나씩 검증한 뒤, 구조화 출력이 되면서 무료 티어가 더 넉넉한 `gemini-3.5-flash-lite`(RPM 15 / RPD 500, AI Studio에서 직접 확인)로 전환
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - Gemini 체크리스트 4항목(문 열림/바닥 이상/사람·동물/화재 위험)을 실제 이미지로 하나씩 테스트하며 판정 정확도 확인
 - Cloudflare Tunnel로 로컬 FastAPI/Next.js 서버를 임시 공개 URL로 노출해서, 하드웨어 담당(B)이 원격에서 실제 엔드포인트를 호출해보는 통합 테스트 진행
 - 테스트 중 쌓인 `camera_logs`/`ai_analysis`/Storage 임시 데이터를 삭제 전 건수 미리보기 → 확인 → 실제 삭제 → 재조회 검증까지 안전하게 정리
@@ -385,7 +385,7 @@ alter table ai_analysis
 
 ---
 
-## 11. Arduino 심화 실습 (RGB LED / 화염 센서+부저 / 초음파 / 서보·스테퍼 모터 / 조이스틱 / LCD I2C / 7-Segment)
+## 11. (2026-08-27) Arduino 심화 실습 (RGB LED / 화염 센서+부저 / 초음파 / 서보·스테퍼 모터 / 조이스틱 / LCD I2C / 7-Segment)
 
 ### 핵심 개념
 - RGB(3색) LED는 R/G/B 세 핀에 각각 `analogWrite()`로 밝기(0~255)를 따로 줘서 색을 섞는 방식이라, 세 핀을 순서대로 하나씩만 켜면 "순차 점등"이 되고 동시에 다른 비율로 켜면 원하는 혼합색을 만들 수 있다.
@@ -422,7 +422,7 @@ void loop()
 }
 ```
 
-### 오늘 실습에서 한 일
+### 실습 요약
 - 3색 LED(RGB) 순차 점등, 화염 센서+부저 화재 감지, 초음파 센서 거리 측정, 서보/스테퍼 모터 제어, 조이스틱 모듈, LCD I2C 디스플레이까지 6개 실습 완료. 7-Segment+택트 스위치는 점퍼선이 부족해 배선을 끝내지 못해 다음으로 미룸
 - 화염 센서 threshold를 처음엔 너무 민감하게 잡아 평소 조명에도 경보가 울렸던 것을, 값을 조정해가며 실제 불꽃에만 반응하도록 튜닝 — 임계값 설정이 오탐/미탐 사이의 균형을 잡는 문제라는 걸 체감
 - 코드에 글자 하나가 잘못 붙어 생긴 컴파일 에러를, 에러 메시지가 가리키는 줄 번호를 따라가며 원인을 찾아 수정
