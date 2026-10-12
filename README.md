@@ -22,7 +22,7 @@ Dev Notes → Tools → Git Workflow → Developer Mode → Contact 순서로 �
    python -m http.server 8000
    ```
    브라우저에서 `http://localhost:8000` 접속
-3. **GitHub Pages**: (https://chsc0204.github.io/yoru/ 에서 바로 볼 수 있습니다.)
+3. **GitHub Pages**: (https://chsc0204.github.io/yoru/) 에서 바로 볼 수 있습니다.)
 
 구성 파일: `style.css`(전체 스타일), `script.js`(Navigation, Scroll Animation,
 Project/Note Modal, Playground 기능 등), `assets/`(아이콘·이미지).
