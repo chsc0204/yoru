@@ -1,5 +1,13 @@
 # My Development Journey
 
+> **🔗 라이브 사이트**: https://chsc0204.github.io/yoru/
+>
+> **대표 프로젝트**
+> - **MechDog 에스코트 로봇** (팀) — 사족보행 로봇 안내·복귀, 팀 MQTT 연동, 테스트 통과율 93% → [저장소](https://github.com/chsc0204/mechdog-project)
+> - **J-MUSE** — React 19 + Supabase 음악 커뮤니티 (로그인, 게시글 CRUD, 플레이리스트)
+> - **아이지킴이** (팀) — ESP32 카메라 → FastAPI → Gemini → Next.js 대시보드 AI 순찰 로봇
+> - **미니 장바구니** — Next.js / FastAPI / SQLite 풀스택
+
 코딩을 배우며 실습한 내용을 실제로 동작하는 프로젝트로 만들어보는 개인 포트폴리오
 저장소입니다. HTML/CSS, JavaScript, Python, Git/GitHub, AI 도구 활용까지 학습 과정을
 코드로 직접 만들어보고 기록하는 것을 목표로 합니다.
@@ -22,7 +30,7 @@ Dev Notes → Tools → Git Workflow → Developer Mode → Contact 순서로 �
    python -m http.server 8000
    ```
    브라우저에서 `http://localhost:8000` 접속
-3. **GitHub Pages**: (https://chsc0204.github.io/yoru/) 에서 바로 볼 수 있습니다.)
+3. **GitHub Pages**: https://chsc0204.github.io/yoru/ 에서 바로 볼 수 있습니다.
 
 구성 파일: `style.css`(전체 스타일), `script.js`(Navigation, Scroll Animation,
 Project/Note Modal, Playground 기능 등), `assets/`(아이콘·이미지).
