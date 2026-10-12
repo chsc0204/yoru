@@ -63,7 +63,7 @@ Project/Note Modal, Playground 기능 등), `assets/`(아이콘·이미지).
 ## Architecture
 
 ```
-power sell/
+yoru/
 ├── index.html                — 메인 포트폴리오 페이지 (Hero/About/Skills/Projects/Playground/Journey/Tools/Contact)
 ├── style.css                 — 포트폴리오 전체 스타일 (라이트·다크 테마 변수 포함)
 ├── script.js                 — Navigation, 검색, Skills/Projects/Playground 렌더링 등 전체 로직
